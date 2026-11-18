@@ -1171,6 +1171,7 @@
       "dragToReorder": "Reorder {label}",
       "countdownLabel": "Countdown",
       "largeTasksLabel": "Show larger tasks on Home",
+      "eventsWrapTitlesLabel": "Wrap long event titles",
       "countdownDescription": "Count the days until special events",
       "countdownPreview1": "🎄 Christmas — 92 days to go",
       "subtitleCount": "{count} of {total} widgets active",

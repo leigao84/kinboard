@@ -132,3 +132,19 @@ export const DEFAULT_POCKET_MONEY_WIDGET_SETTINGS: PocketMoneyWidgetSettings = {
   displayMode: "toggle",
   recentTransactions: 0,
 };
+
+/**
+ * The dashboard events widget's title rendering: its own settings row,
+ * like PocketMoneyWidgetSettings, not a key in `widget_visibility`.
+ * The defaults are the widget as it always was -- single-line titles
+ * that scroll (marquee) when they overflow.
+ */
+export interface EventsWidgetSettings {
+  /** Wrap long titles onto a second line instead of the single-line
+   *  scrolling marquee, so the whole title is readable at a glance. */
+  wrapTitles: boolean;
+}
+
+export const DEFAULT_EVENTS_WIDGET_SETTINGS: EventsWidgetSettings = {
+  wrapTitles: false,
+};

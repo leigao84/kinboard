@@ -10,7 +10,9 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Skeleton } from "@/components/ui/skeleton";
 import Link from "next/link";
-import { useEvents, useHolidayEntries, usePeople, useTodos, useToday } from "@/hooks";
+import { useEvents, useHolidayEntries, usePeople, useTodos, useToday, useSetting } from "@/hooks";
+import { SETTINGS_KEYS } from "@/lib/settings-keys";
+import { DEFAULT_EVENTS_WIDGET_SETTINGS, type EventsWidgetSettings } from "@/types/widgets";
 import { eventTaskOccurrences } from "@/lib/task-events";
 import { entryListDay, HOLIDAY_COLOR, holidayEndPattern, keyToDate } from "@/lib/holiday-entries";
 import { toLocalDateKey } from "@/lib/local-date";
@@ -65,6 +67,11 @@ export function UpcomingEvents({
   const dateLocale = getDateFnsLocale(locale);
   // Re-render at midnight so the query window follows the day.
   const today = useToday();
+  const { data: eventsSettings } = useSetting<EventsWidgetSettings>(
+    SETTINGS_KEYS.eventsWidget,
+    DEFAULT_EVENTS_WIDGET_SETTINGS,
+  );
+  const wrapTitles = eventsSettings?.wrapTitles ?? DEFAULT_EVENTS_WIDGET_SETTINGS.wrapTitles;
 
   // Get events for today and the next 14 days - memoized to prevent infinite
   // refetches, but keyed on the day: on a kiosk that runs for days an empty
@@ -227,6 +234,7 @@ export function UpcomingEvents({
                   <EventPill
                     variant="agenda"
                     title={event.title}
+                    wrapTitle={wrapTitles}
                     color={event.color}
                     time={event.allDay ? undefined : formatTime(event.start)}
                     className={event.holiday ? "bg-amber-400/10" : undefined}

@@ -1171,6 +1171,7 @@
       "dragToReorder": "{label} sortieren",
       "countdownLabel": "Countdown",
       "largeTasksLabel": "Aufgaben auf Home größer anzeigen",
+      "eventsWrapTitlesLabel": "Lange Ereignistitel umbrechen",
       "countdownDescription": "Tage bis zu besonderen Ereignissen zählen",
       "countdownPreview1": "🎄 Weihnachten — noch 92 Tage",
       "subtitleCount": "{count} von {total} Widgets aktiv",

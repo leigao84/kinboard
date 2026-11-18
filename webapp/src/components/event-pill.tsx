@@ -12,6 +12,9 @@ export interface EventPillProps {
   variant?: "pill" | "agenda";
   /** Agenda mode: time shown mono before the title. */
   time?: string;
+  /** Agenda mode: wrap the title onto up to two lines instead of the
+   *  single-line scrolling marquee. */
+  wrapTitle?: boolean;
   className?: string;
 }
 
@@ -21,6 +24,7 @@ export function EventPill({
   icon: Icon,
   variant = "pill",
   time,
+  wrapTitle,
   className,
 }: EventPillProps) {
   if (variant === "agenda") {
@@ -41,7 +45,11 @@ export function EventPill({
           </span>
         )}
         {Icon && <Icon className="size-4 shrink-0" strokeWidth={1.75} aria-hidden="true" />}
-        <MarqueeText text={title} className="min-w-0 flex-1 text-sm font-medium" />
+        {wrapTitle ? (
+          <span className="min-w-0 flex-1 text-sm font-medium leading-snug line-clamp-2">{title}</span>
+        ) : (
+          <MarqueeText text={title} className="min-w-0 flex-1 text-sm font-medium" />
+        )}
       </div>
     );
   }

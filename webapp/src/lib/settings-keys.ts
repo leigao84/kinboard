@@ -27,6 +27,9 @@ export const SETTINGS_KEYS = {
   // { displayMode, recentTransactions }, the dashboard pocket-money
   // widget's layout (types/widgets.ts).
   pocketMoneyWidget: "pocket_money_widget",
+  // { wrapTitles }, the dashboard events widget's title rendering
+  // (types/widgets.ts).
+  eventsWidget: "events_widget",
   // { presets: number[] }, the timer widget's buttons in whole minutes;
   // absent means 3, 5, 10 and 15 (lib/timer-presets.ts).
   timerWidget: "timer_widget",
