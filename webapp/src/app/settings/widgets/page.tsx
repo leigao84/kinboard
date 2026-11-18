@@ -36,9 +36,9 @@ import { useSetting, useUpdateSetting, usePeople, useSchedules } from "@/hooks";
 import { timetabledChildren } from "@/lib/timetabled-children";
 import { SETTINGS_KEYS } from "@/lib/settings-keys";
 import { useKeyboardShortcuts, useSwipeNavigation } from "@/hooks";
-import { DEFAULT_WIDGET_VISIBILITY, DEFAULT_SCHEDULE_WIDGET_SETTINGS, DEFAULT_POCKET_MONEY_WIDGET_SETTINGS } from "@/types/widgets";
+import { DEFAULT_WIDGET_VISIBILITY, DEFAULT_SCHEDULE_WIDGET_SETTINGS, DEFAULT_POCKET_MONEY_WIDGET_SETTINGS, DEFAULT_EVENTS_WIDGET_SETTINGS } from "@/types/widgets";
 import { useHomeLayout } from "@/hooks/use-home-layout";
-import type { WidgetVisibility, ScheduleWidgetSettings, PocketMoneyWidgetSettings } from "@/types/widgets";
+import type { WidgetVisibility, ScheduleWidgetSettings, PocketMoneyWidgetSettings, EventsWidgetSettings } from "@/types/widgets";
 import { useWidgetOrder, mergeWidgetOrder } from "@/hooks/use-widget-order";
 import { TimerPresetsEditor } from "@/components/settings/timer-presets-editor";
 
@@ -114,6 +114,19 @@ export default function WidgetSettingsPage() {
     updatePocketMoneyWidget.mutate({
       key: SETTINGS_KEYS.pocketMoneyWidget,
       value: { ...DEFAULT_POCKET_MONEY_WIDGET_SETTINGS, ...(pocketMoneyWidget ?? {}), ...patch },
+    });
+
+  const { data: eventsWidget } = useSetting<EventsWidgetSettings>(
+    SETTINGS_KEYS.eventsWidget,
+    DEFAULT_EVENTS_WIDGET_SETTINGS,
+  );
+  const updateEventsWidget = useUpdateSetting<EventsWidgetSettings>();
+  const wrapTitles =
+    eventsWidget?.wrapTitles ?? DEFAULT_EVENTS_WIDGET_SETTINGS.wrapTitles;
+  const setEvents = (patch: Partial<EventsWidgetSettings>) =>
+    updateEventsWidget.mutate({
+      key: SETTINGS_KEYS.eventsWidget,
+      value: { ...DEFAULT_EVENTS_WIDGET_SETTINGS, ...(eventsWidget ?? {}), ...patch },
     });
 
   // Named here so the switch can say who it will actually affect. A family
@@ -326,6 +339,12 @@ export default function WidgetSettingsPage() {
                         </div>
                       )}
                       {widget.key === "timers" && <TimerPresetsEditor disabled={!enabled} />}
+                      {widget.key === "upcomingEvents" && (
+                        <div className="mt-3 flex items-center justify-between gap-3 border-t border-border/40 pt-3">
+                          <p className="text-sm font-medium">{t("eventsWrapTitlesLabel")}</p>
+                          <Switch checked={wrapTitles} onCheckedChange={(checked) => setEvents({ wrapTitles: checked })} disabled={!enabled || updateEventsWidget.isPending} aria-label={t("eventsWrapTitlesLabel")} />
+                        </div>
+                      )}
                       {widget.key === "tasks" && (
                         <div className="mt-3 flex items-center justify-between gap-3 border-t border-border/40 pt-3">
                           <p className="text-sm font-medium">{t("largeTasksLabel")}</p>

@@ -1142,6 +1142,7 @@
       "dragToReorder": "Réorganiser {label}",
       "countdownLabel": "Compte à rebours",
       "largeTasksLabel": "Agrandir les tâches sur l’accueil",
+      "eventsWrapTitlesLabel": "Titres longs sur plusieurs lignes",
       "countdownDescription": "Compter les jours avant les événements spéciaux",
       "countdownPreview1": "🎄 Noël — dans 92 jours",
       "subtitleCount": "{count} sur {total} widgets actifs",
