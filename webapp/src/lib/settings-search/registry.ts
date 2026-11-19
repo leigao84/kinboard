@@ -242,6 +242,7 @@ export const SETTINGS_ENTRIES: readonly SettingsEntry[] = [
     { anchor: "lists", labelKey: "settings.screensaver.eventCountLabel", descriptionKey: "settings.screensaver.eventCountDescription" },
     { anchor: "forecast", labelKey: "settings.screensaver.showForecastLabel", descriptionKey: "settings.screensaver.showForecastDescription" },
     { anchor: "lessons", labelKey: "settings.screensaver.showLessonsLabel", descriptionKey: "settings.screensaver.showLessonsDescription" },
+    { anchor: "trivia", labelKey: "settings.screensaver.showTriviaLabel", descriptionKey: "settings.screensaver.showTriviaDescription" },
     { anchor: "weather-effects", labelKey: "settings.screensaver.weatherEffectsLabel" },
     { anchor: "night", labelKey: "settings.screensaver.nightLabel" },
     { anchor: "timeout", labelKey: "settings.screensaver.timeoutHeading" },

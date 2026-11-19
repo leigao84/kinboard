@@ -169,6 +169,7 @@
       "lessonsTomorrow": "Morgen in der Schule",
       "lessonsOn": "{day} in der Schule",
       "lessonsBring": "Mitnehmen: {items}",
+      "triviaLabel": "Wusstest du schon?",
       "holidayUntil": "bis {date}"
     },
     "pwa": {
@@ -1430,6 +1431,8 @@
       "showForecastDescription": "Neben der Temperatur die nächsten Stunden in 3-Stunden-Schritten: Wetter, Temperatur und Regenwahrscheinlichkeit",
       "showLessonsLabel": "Stundenplan der Kinder",
       "showLessonsDescription": "Die heutigen Fächer jedes Kindes und was mitmuss, z. B. Sportsachen; abends der nächste Schultag, ab der Uhrzeit aus dem Stundenplan-Widget",
+      "showTriviaLabel": "Quizfrage",
+      "showTriviaDescription": "Eine wechselnde „Wusstest du schon?“-Quizfrage bei den Terminen und Geburtstagen; die Antwort erscheint nach wenigen Sekunden",
       "weatherEffectsLabel": "Wettereffekte",
       "weatherEffectsDescription": "Schnee, Regen, Frost und mehr über den Fotos, wie auf dem Startbildschirm. Welche Effekte und ab wann, steht unter <link>Wetter</link>.",
       "birthdayCountLabel": "Anzahl der Geburtstage",

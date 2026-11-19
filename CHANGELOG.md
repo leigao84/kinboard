@@ -8,6 +8,8 @@ follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+- **Trivia on the screensaver.** Settings → Screensaver → *Trivia*, off unless switched on: a "Did you know?" question sits with the events and birthdays, and its answer fades in a few seconds later, so the room gets a moment to guess. The questions are the Open Trivia DB's multiple-choice bank (CC BY-SA 4.0) — all 4,494 of them baked into the app, so the screensaver needs no internet for them and draws a fresh handful each time.
+
 - **An option to wrap long event titles.** Settings → Widgets → Events → *Wrap long event titles*: titles in the events widget wrap onto a second line instead of scrolling sideways in a marquee, so the whole title is readable at a glance. Off unless switched on; the marquee stays the default.
 
 - **iCloud shared albums in the current link format.** Albums shared from iOS 26 or macOS 26 use Apple's CloudKit sharing links, which Kinboard could not read: the album saved without complaint and the photos simply never appeared. Both link formats now work. Paste the share link under Settings → Photos as usual and Kinboard detects which kind of link it is, so albums shared from a current iPhone or Mac show their photos like any other.

@@ -26,6 +26,7 @@ import { choosePhotoFit, aspectOf } from "@/lib/photo-fit";
 import { WeatherEffects } from "@/components/weather-effects";
 import { ScreensaverWeather } from "@/components/screensaver-weather";
 import { ScreensaverLessons } from "@/components/screensaver-lessons";
+import { ScreensaverTrivia } from "@/components/screensaver-trivia";
 import { CreaturesOnIdle } from "@/components/creatures-on-home";
 import { useFitToWidth, useMediaQuery } from "@/hooks/use-fit-to-width";
 
@@ -278,6 +279,7 @@ export function Screensaver({ photos }: ScreensaverProps) {
   const { data: weather } = useWeather();
   const showForecast = screensaverSettings.showForecast ?? false;
   const showLessons = screensaverSettings.showLessons ?? false;
+  const showTrivia = screensaverSettings.showTrivia ?? false;
   const weatherEffects = screensaverSettings.weatherEffects ?? false;
 
 
@@ -1333,6 +1335,9 @@ export function Screensaver({ photos }: ScreensaverProps) {
 
         {/* The children's lessons and what to bring (#282). */}
         {showLessons && <ScreensaverLessons large={largeDetails} />}
+
+        {/* A rotating "Did you know?" trivia question, same stack. */}
+        {showTrivia && <ScreensaverTrivia large={largeDetails} />}
 
       </div>
       </div>

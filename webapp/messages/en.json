@@ -169,6 +169,7 @@
       "lessonsTomorrow": "At school tomorrow",
       "lessonsOn": "At school on {day}",
       "lessonsBring": "Bring: {items}",
+      "triviaLabel": "Did you know?",
       "holidayUntil": "until {date}"
     },
     "pwa": {
@@ -1430,6 +1431,8 @@
       "showForecastDescription": "Next to the temperature, the coming hours in 3-hour steps: weather, temperature and chance of rain",
       "showLessonsLabel": "Children's lessons",
       "showLessonsDescription": "Each child's subjects today and what to bring, such as the sports kit; in the evening the next school day, from the time set for the schedule widget",
+      "showTriviaLabel": "Trivia",
+      "showTriviaDescription": "A rotating “Did you know?” trivia question with the events and birthdays; the answer appears after a few seconds",
       "weatherEffectsLabel": "Weather effects",
       "weatherEffectsDescription": "Snow, rain, frost and more over the photos, as on Home. Which effects and when are set under <link>Weather</link>.",
       "birthdayCountLabel": "Number of birthdays",
