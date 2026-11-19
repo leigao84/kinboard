@@ -178,6 +178,8 @@ test.describe("the settings menu comes from the registry", () => {
         "/settings/stonks",
         "/settings/pocket-money",
         "/settings/media-players",
+        // The Games plugin's portal address.
+        "/settings/games",
       ],
     };
     const after: Record<string, string[]> = {};

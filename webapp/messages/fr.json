@@ -467,6 +467,7 @@
     "more": "Plus",
     "photos": "Photos",
     "media": "Média",
+    "games": "Jeux",
     "rewards": "Récompenses"
   },
   "cameras": {
@@ -1090,6 +1091,8 @@
     "itemCamerasDescription": "Gérer les caméras de sécurité",
     "itemStonksLabel": "Actions & Liste de suivi",
     "itemStonksDescription": "Gérer votre liste de suivi d'investissements",
+    "itemGamesLabel": "Jeux",
+    "itemGamesDescription": "Le portail de jeux ouvert par le bouton Jeux",
     "itemPocketMoneyLabel": "Argent de poche",
     "itemPocketMoneyDescription": "Gérer les comptes des enfants, l'argent de poche et les intérêts",
     "itemCreaturesLabel": "Créatures et récompenses",
@@ -2725,7 +2728,8 @@
         "stonks": "Actions",
         "pocket-money": "Argent de poche",
         "photos": "Photos",
-        "media": "Média"
+        "media": "Média",
+        "games": "Jeux"
       },
       "description": {
         "vehicles": "Suivez les voitures de votre foyer via les entités Home Assistant. Les pilotes Tesla et VE générique sont inclus.",
@@ -2734,8 +2738,20 @@
         "stonks": "Suivez les actions, ETF, crypto, indices et devises sur une liste de suivi avec graphiques en chandelles. Alimenté par Yahoo Finance.",
         "pocket-money": "Comptes d'argent de poche virtuels par enfant avec allocation configurable, intérêts courus quotidiennement, objectifs d'épargne et un avatar qui évolue à mesure que l'enfant économise.",
         "photos": "Parcourez la photothèque sur le tableau lui-même, pas seulement sur l'écran de veille. Utilise la source que vous avez connectée — Immich, un serveur multimédia DLNA ou un album partagé iCloud.",
-        "media": "Contrôlez depuis le tableau les enceintes et écrans que Home Assistant connaît déjà."
+        "media": "Contrôlez depuis le tableau les enceintes et écrans que Home Assistant connaît déjà.",
+        "games": "Un portail de jeux à vous, ouvert dans Kinboard — la navigation du tableau reste visible."
       }
+    },
+    "games": {
+      "title": "Jeux",
+      "description": "Le portail de jeux ouvert par le bouton Jeux",
+      "intro": "Le bouton Jeux dans la navigation ouvre un portail de jeux dans Kinboard — une page à vous, intégrée, pour garder le tableau à un toucher.",
+      "portalHeading": "Portail de jeux",
+      "urlLabel": "Adresse du portail",
+      "urlHint": "La page intégrée par le bouton Jeux. Le portail doit autoriser l'affichage à l'intérieur d'une autre page.",
+      "saveButton": "Enregistrer",
+      "saved": "Enregistré",
+      "saveFailed": "Échec de l'enregistrement — veuillez réessayer"
     },
     "stonks": {
       "title": "Actions & Liste de suivi",
@@ -3512,6 +3528,7 @@
       "energy": "énergie, électricité, solaire, photovoltaïque, batterie, réseau",
       "cameras": "caméra, caméras, sonnette, interphone, surveillance, RTSP, go2rtc, vidéo",
       "stonks": "actions, bourse, liste de suivi, investissements, ETF, portefeuille",
+      "games": "jeux, jouer, portail, portail de jeux",
       "pocket-money": "argent de poche, enfants, épargne, intérêts, argent, points, récompenses, points de tâches",
       "media-players": "médias, musique, enceintes, Sonos, télé, lecteurs",
       "google": "Google, Google Agenda, compte, synchroniser",
@@ -3576,6 +3593,7 @@
       "integrations_tokens": "jetons existants, révoquer, clés API, accès",
       "stonks_add-symbol": "ajouter un symbole, ticker, action, ETF, rechercher",
       "stonks_watchlist": "liste de suivi, actions, supprimer, surnom",
+      "games_portal": "portail, adresse, URL, lien, page de jeux",
       "pocket-money_currency": "devise, monnaie, euro, dollar, livre, argent",
       "google_auto-sync": "synchronisation automatique, intervalle, synchroniser Google, fréquence",
       "google_calendars": "calendriers, agendas Google, quels calendriers, activer, couleurs",
@@ -5574,6 +5592,14 @@
     "startFailed": "Impossible de lancer ce minuteur",
     "soundOff": "Son coupé jusqu'à ce que quelqu'un touche cet écran",
     "soundOffShort": "Touchez pour le son"
+  },
+  "games": {
+    "title": "Jeux",
+    "frameTitle": "Portail de jeux",
+    "loading": "Chargement des jeux…",
+    "openExternal": "Ouvrir dans un nouvel onglet",
+    "mixedContent": "Ce portail ne peut pas s'afficher ici : Kinboard est servi en HTTPS mais l'adresse du portail est en HTTP, et les navigateurs refusent ce mélange. Donnez plutôt une adresse HTTPS au portail.",
+    "settingsLink": "Réglages des jeux"
   },
   "media": {
     "title": "Média",

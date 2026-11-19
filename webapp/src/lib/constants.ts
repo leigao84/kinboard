@@ -20,6 +20,7 @@ import {
   PiggyBank,
   Music,
   Gift,
+  Gamepad2,
 } from "lucide-react";
 
 /**
@@ -54,8 +55,13 @@ export const NO_NAV_PATHS = ["/join", "/einkaufen", "/setup"] as const;
  * pad without touching the screen let the idle timer run out and the
  * screensaver covered the prompt mid-entry, which reads as the prompt timing
  * out on you. Settings is an actively-used surface anyway.
+ *
+ * `/games` is here because the portal is framed: taps inside the frame
+ * never reach this page's idle listeners, so a long think over a puzzle
+ * would read as nobody at the screen and the screensaver would cover
+ * the game mid-play.
  */
-export const SCREENSAVER_SKIP_PATHS = [...NO_NAV_PATHS, "/settings"] as const;
+export const SCREENSAVER_SKIP_PATHS = [...NO_NAV_PATHS, "/settings", "/games"] as const;
 
 export function isScreensaverSkipPath(pathname: string): boolean {
   return SCREENSAVER_SKIP_PATHS.some(
@@ -93,6 +99,7 @@ export const NAV_ITEMS = [
   { href: "/cameras", icon: Video, labelKey: "cameras" },
   { href: "/photos", icon: Images, labelKey: "photos" },
   { href: "/media", icon: Music, labelKey: "media" },
+  { href: "/games", icon: Gamepad2, labelKey: "games" },
   { href: "/news", icon: Newspaper, labelKey: "news" },
   { href: "/settings", icon: Settings, labelKey: "settings" },
 ] as const;
