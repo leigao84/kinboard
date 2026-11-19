@@ -467,6 +467,7 @@
     "more": "Mehr",
     "photos": "Fotos",
     "media": "Medien",
+    "games": "Spiele",
     "rewards": "Belohnungen"
   },
   "cameras": {
@@ -1090,6 +1091,8 @@
     "itemCamerasDescription": "Überwachungskameras verwalten",
     "itemStonksLabel": "Aktien & Watchlist",
     "itemStonksDescription": "Investitions-Watchlist verwalten",
+    "itemGamesLabel": "Spiele",
+    "itemGamesDescription": "Das Spieleportal, das die Spiele-Schaltfläche öffnet",
     "itemPocketMoneyLabel": "Taschengeld",
     "itemPocketMoneyDescription": "Kinderkonten, Taschengelder und Zinsen verwalten",
     "itemCreaturesLabel": "Kreaturen & Belohnungen",
@@ -2726,7 +2729,8 @@
         "stonks": "Stonks",
         "pocket-money": "Taschengeld",
         "photos": "Fotos",
-        "media": "Medien"
+        "media": "Medien",
+        "games": "Spiele"
       },
       "description": {
         "vehicles": "Fahrzeuge im Haushalt über Home-Assistant-Entitäten verfolgen. Tesla- und Generic-EV-Treiber sind im Kern enthalten.",
@@ -2735,8 +2739,20 @@
         "stonks": "Aktien, ETFs, Krypto, Indizes und Forex in einer Watchlist mit Candlestick-Charts verfolgen. Daten von Yahoo Finance.",
         "pocket-money": "Virtuelle Taschengeld-Konten für Kinder mit konfigurierbarem Taschengeld, täglicher Zinsgutschrift, Sparzielen und einem Avatar, der mit dem Ersparten wächst.",
         "photos": "Die Fotomediathek auf dem Board selbst durchsehen, nicht nur auf dem Ruhebildschirm. Nutzt die verbundene Quelle — Immich, einen DLNA-Medienserver oder ein geteiltes iCloud-Album.",
-        "media": "Steuere Lautsprecher und Bildschirme, die Home Assistant bereits kennt, direkt vom Board aus."
+        "media": "Steuere Lautsprecher und Bildschirme, die Home Assistant bereits kennt, direkt vom Board aus.",
+        "games": "Ein eigenes Spieleportal, geöffnet in Kinboard — die Navigation des Boards bleibt sichtbar."
       }
+    },
+    "games": {
+      "title": "Spiele",
+      "description": "Das Spieleportal, das die Spiele-Schaltfläche öffnet",
+      "intro": "Die Spiele-Schaltfläche in der Navigation öffnet ein Spieleportal in Kinboard — eine eigene Seite, eingebettet, damit das Board immer einen Tipp entfernt ist.",
+      "portalHeading": "Spieleportal",
+      "urlLabel": "Portaladresse",
+      "urlHint": "Die Seite, die die Spiele-Schaltfläche einbettet. Das Portal muss die Anzeige innerhalb einer anderen Seite erlauben.",
+      "saveButton": "Speichern",
+      "saved": "Gespeichert",
+      "saveFailed": "Speichern fehlgeschlagen — bitte erneut versuchen"
     },
     "stonks": {
       "title": "Aktien & Watchlist",
@@ -3513,6 +3529,7 @@
       "energy": "Energie, Strom, Solar, PV, Photovoltaik, Batterie, Speicher, Netz",
       "cameras": "Kamera, Kameras, Türklingel, Klingel, Überwachung, RTSP, go2rtc, Video",
       "stonks": "Aktien, Watchlist, Anlagen, Börse, ETF, Depot",
+      "games": "Spiele, spielen, Portal, Spieleportal",
       "pocket-money": "Taschengeld, Kinder, Sparen, Zinsen, Geld, Konto, Punkte, Belohnungen, Aufgabenpunkte",
       "media-players": "Medien, Musik, Lautsprecher, Sonos, Fernseher, TV, Player",
       "google": "Google, Google Kalender, Konto, synchronisieren",
@@ -3577,6 +3594,7 @@
       "integrations_tokens": "vorhandene Tokens, widerrufen, API-Schlüssel, Zugriff",
       "stonks_add-symbol": "Symbol hinzufügen, Ticker, Aktie, ETF, suchen",
       "stonks_watchlist": "Watchlist, Beobachtungsliste, Aktien, entfernen, Spitzname",
+      "games_portal": "Portal, Adresse, URL, Link, Spieleseite",
       "pocket-money_currency": "Währung, Euro, Dollar, Pfund, Geld",
       "google_auto-sync": "automatische Synchronisierung, Intervall, Google synchronisieren, wie oft",
       "google_calendars": "Kalender, Google-Kalender, welche Kalender, aktivieren, Farben",
@@ -5575,6 +5593,14 @@
     "startFailed": "Timer konnte nicht gestartet werden",
     "soundOff": "Ton aus, bis jemand diesen Bildschirm berührt",
     "soundOffShort": "Tippen für Ton"
+  },
+  "games": {
+    "title": "Spiele",
+    "frameTitle": "Spieleportal",
+    "loading": "Spiele werden geladen…",
+    "openExternal": "In neuem Tab öffnen",
+    "mixedContent": "Dieses Portal kann hier nicht angezeigt werden: Kinboard läuft über HTTPS, die Portaladresse aber über HTTP — Browser verweigern diese Mischung. Gib dem Portal stattdessen eine HTTPS-Adresse.",
+    "settingsLink": "Spiele-Einstellungen"
   },
   "media": {
     "title": "Medien",

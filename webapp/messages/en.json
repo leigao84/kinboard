@@ -467,6 +467,7 @@
     "more": "More",
     "photos": "Photos",
     "media": "Media",
+    "games": "Games",
     "rewards": "Rewards"
   },
   "cameras": {
@@ -1090,6 +1091,8 @@
     "itemCamerasDescription": "Manage security cameras",
     "itemStonksLabel": "Stocks & Watchlist",
     "itemStonksDescription": "Manage your investment watchlist",
+    "itemGamesLabel": "Games",
+    "itemGamesDescription": "The games portal the Games button opens",
     "itemPocketMoneyLabel": "Pocket Money",
     "itemPocketMoneyDescription": "Manage kids' accounts, allowances, and interest",
     "itemCreaturesLabel": "Creatures & rewards",
@@ -2726,7 +2729,8 @@
         "stonks": "Stonks",
         "pocket-money": "Pocket Money",
         "photos": "Photos",
-        "media": "Media"
+        "media": "Media",
+        "games": "Games"
       },
       "description": {
         "vehicles": "Track cars in your household via Home Assistant entities. Tesla and Generic-EV drivers ship in core.",
@@ -2735,8 +2739,20 @@
         "stonks": "Track stocks, ETFs, crypto, indices, and forex on a watchlist with candle charts. Powered by Yahoo Finance.",
         "pocket-money": "Per-kid virtual pocket-money accounts with configurable allowance, daily interest accrual, saving goals, and an avatar that evolves as the kid saves.",
         "photos": "Browse the photo library on the board itself, not only on the idle screen. Uses whichever source you have connected — Immich, a DLNA media server, or an iCloud Shared Album.",
-        "media": "Control speakers and screens Home Assistant already knows about, right from the board."
+        "media": "Control speakers and screens Home Assistant already knows about, right from the board.",
+        "games": "A games portal of your own, opened inside Kinboard — the board's navigation stays on screen."
       }
+    },
+    "games": {
+      "title": "Games",
+      "description": "The games portal the Games button opens",
+      "intro": "The Games button in the navigation opens a games portal inside Kinboard — a page of your own, framed, so the board stays one tap away.",
+      "portalHeading": "Games portal",
+      "urlLabel": "Portal address",
+      "urlHint": "The page the Games button frames. The portal must allow being shown inside another page.",
+      "saveButton": "Save",
+      "saved": "Saved",
+      "saveFailed": "Couldn't save — please try again"
     },
     "stonks": {
       "title": "Stocks & Watchlist",
@@ -3513,6 +3529,7 @@
       "energy": "energy, solar, PV, battery, grid, power, electricity",
       "cameras": "camera, cameras, doorbell, CCTV, security, RTSP, go2rtc, video",
       "stonks": "stocks, shares, watchlist, investments, ETF, portfolio",
+      "games": "games, play, portal, games portal",
       "pocket-money": "pocket money, allowance, kids, savings, interest, money, points, rewards, task points",
       "media-players": "media, music, speakers, Sonos, TV, players, cast",
       "google": "Google, Google Calendar, Gmail, sync, account",
@@ -3577,6 +3594,7 @@
       "integrations_tokens": "existing tokens, revoke, API keys, access",
       "stonks_add-symbol": "add symbol, ticker, stock, share, ETF, search",
       "stonks_watchlist": "watchlist, stocks, shares, remove, nickname",
+      "games_portal": "portal, address, url, link, games page",
       "pocket-money_currency": "currency, euro, dollar, pound, money",
       "google_auto-sync": "automatic sync, sync interval, Google sync, how often",
       "google_calendars": "calendars, Google calendars, which calendars, enable, colours",
@@ -5575,6 +5593,14 @@
     "startFailed": "Could not start that timer",
     "soundOff": "Sound is off until someone touches this screen",
     "soundOffShort": "Tap for sound"
+  },
+  "games": {
+    "title": "Games",
+    "frameTitle": "Games portal",
+    "loading": "Loading games…",
+    "openExternal": "Open in a new tab",
+    "mixedContent": "This portal can't be shown here: Kinboard is served over HTTPS but the portal address is HTTP, and browsers refuse to mix the two. Give the portal an HTTPS address instead.",
+    "settingsLink": "Games settings"
   },
   "media": {
     "title": "Media",

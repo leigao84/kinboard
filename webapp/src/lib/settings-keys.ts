@@ -46,6 +46,9 @@ export const SETTINGS_KEYS = {
   newsSources: "news_sources",
   newsCustomFeeds: "news_custom_feeds",
   enabledPlugins: "enabled_plugins",
+  // The games portal address the Games plugin frames (lib/games.ts);
+  // absent means the default portal.
+  gamesPortalUrl: "games_portal_url",
   bringSettings: "bring_settings",
   photoSource: "photo_source",
   settingsPin: "settings_pin",
