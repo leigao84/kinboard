@@ -7,6 +7,7 @@ import { Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import {
   Select,
@@ -23,6 +24,7 @@ import { SCREENSAVER_LIST_COUNTS, screensaverListCount } from "@/types/screensav
 import Link from "next/link";
 import { useCreatureBedtime } from "@/hooks/use-creature-mood";
 import { formatClock } from "@/lib/creature-mood";
+import { SCREENSAVER_PREVIEW_EVENT } from "@/lib/screensaver-gate";
 
 // Numeric values; labels resolved per-locale via t() at render
 const SCREENSAVER_TIMEOUTS = [
@@ -231,6 +233,20 @@ export default function ScreensaverSettingsPage() {
               )}
               <Switch id="screensaver-birthdays" checked={showBirthdays} onCheckedChange={(value) => updateDisplayOption("showBirthdays", value)} disabled={updateSettings.isPending} />
             </div>
+          </div>
+          <div id="preview" data-setting="preview" className="flex items-center justify-between gap-4">
+            <div>
+              <Label htmlFor="screensaver-preview">{t("previewLabel")}</Label>
+              <p className="text-xs text-muted-foreground">{t("previewDescription")}</p>
+            </div>
+            <Button
+              id="screensaver-preview"
+              type="button"
+              variant="outline"
+              onClick={() => window.dispatchEvent(new Event(SCREENSAVER_PREVIEW_EVENT))}
+            >
+              {t("previewButton")}
+            </Button>
           </div>
         </Card>
 

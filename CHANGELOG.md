@@ -8,6 +8,8 @@ follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+- **A preview button for the screensaver.** Settings → Screensaver → *Preview screensaver*: the screensaver comes up on this screen right away, with the family's options as set, so a change — a new section, a different list length — can be seen without standing around waiting out the idle timeout. It stays until the next touch or key, like waking from the real one, and it works on any screen, phones included, where the idle screensaver itself stays off.
+
 - **Trivia on the screensaver.** Settings → Screensaver → *Trivia*, off unless switched on: a "Did you know?" question sits with the events and birthdays, and its answer fades in a few seconds later, so the room gets a moment to guess. The questions are the Open Trivia DB's multiple-choice bank (CC BY-SA 4.0) — all 4,494 of them baked into the app, so the screensaver needs no internet for them and draws a fresh handful each time.
 
 - **An option to wrap long event titles.** Settings → Widgets → Events → *Wrap long event titles*: titles in the events widget wrap onto a second line instead of scrolling sideways in a marquee, so the whole title is readable at a glance. Off unless switched on; the marquee stays the default.
