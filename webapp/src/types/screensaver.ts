@@ -42,6 +42,10 @@ export interface ScreensaverSettings {
   // (#282); in the evening the next school day, from the schedule widget's
   // "next school day from" time.
   showLessons?: boolean;
+  // A rotating "Did you know?" trivia question in the stack with the
+  // events, its answer appearing a few seconds after the question
+  // (bank: the Open Trivia DB, baked into the app — no network needed).
+  showTrivia?: boolean;
   // Home's weather effects (snow, rain, frost...) over the photos too, with
   // the thresholds from Settings -> Weather; separate from Home's own switch.
   weatherEffects?: boolean;
@@ -73,6 +77,7 @@ export const DEFAULT_SCREENSAVER_SETTINGS: ScreensaverSettings = {
   night: false,
   showForecast: false,
   showLessons: false,
+  showTrivia: false,
   weatherEffects: false,
 };
 

@@ -91,7 +91,7 @@ export default function ScreensaverSettingsPage() {
     });
   };
 
-  const updateDisplayOption = (field: "showNews" | "largeDetails" | "showBirthdays" | "showNextEvent" | "night" | "showForecast" | "showLessons" | "weatherEffects", value: boolean) => {
+  const updateDisplayOption = (field: "showNews" | "largeDetails" | "showBirthdays" | "showNextEvent" | "night" | "showForecast" | "showLessons" | "showTrivia" | "weatherEffects", value: boolean) => {
     updateSettings.mutate({ key: "screensaver", value: { ...settings, [field]: value } });
   };
 
@@ -153,6 +153,13 @@ export default function ScreensaverSettingsPage() {
               <p className="text-xs text-muted-foreground">{t("showLessonsDescription")}</p>
             </div>
             <Switch id="screensaver-lessons" checked={settings.showLessons ?? false} onCheckedChange={(value) => updateDisplayOption("showLessons", value)} disabled={updateSettings.isPending} />
+          </div>
+          <div id="trivia" data-setting="trivia" className="flex items-center justify-between gap-4">
+            <div>
+              <Label htmlFor="screensaver-trivia">{t("showTriviaLabel")}</Label>
+              <p className="text-xs text-muted-foreground">{t("showTriviaDescription")}</p>
+            </div>
+            <Switch id="screensaver-trivia" checked={settings.showTrivia ?? false} onCheckedChange={(value) => updateDisplayOption("showTrivia", value)} disabled={updateSettings.isPending} />
           </div>
           <div id="weather-effects" data-setting="weather-effects" className="flex items-center justify-between gap-4">
             <div>
