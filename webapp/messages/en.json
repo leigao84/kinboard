@@ -1463,7 +1463,7 @@
       "previewDescription": "See it on this screen right away, with the options set here. It stays up until the next touch.",
       "previewButton": "Preview",
       "showTriviaLabel": "Trivia",
-      "showTriviaDescription": "A rotating “Did you know?” trivia question with the events and birthdays; the answer appears after a few seconds",
+      "showTriviaDescription": "A rotating “Did you know?” trivia question under the news; the answer appears after a few seconds",
       "weatherEffectsLabel": "Weather effects",
       "weatherEffectsDescription": "Snow, rain, frost and more over the photos, as on Home. Which effects and when are set under <link>Weather</link>.",
       "birthdayCountLabel": "Number of birthdays",
