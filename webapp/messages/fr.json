@@ -1432,7 +1432,7 @@
       "showLessonsLabel": "Cours des enfants",
       "showLessonsDescription": "Les matières du jour de chaque enfant et ce qu’il faut emporter, comme les affaires de sport ; le soir, le prochain jour d’école, à partir de l’heure réglée pour le widget emploi du temps",
       "showTriviaLabel": "Question quiz",
-      "showTriviaDescription": "Une question « Le saviez-vous ? » qui défile avec les événements et les anniversaires ; la réponse apparaît après quelques secondes",
+      "showTriviaDescription": "Une question « Le saviez-vous ? » qui défile sous les actualités ; la réponse apparaît après quelques secondes",
       "previewLabel": "Aperçu de l'écran de veille",
       "previewDescription": "L'afficher sur cet écran tout de suite, avec les options réglées ici. Il reste jusqu'au prochain toucher.",
       "previewButton": "Aperçu",

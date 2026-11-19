@@ -280,6 +280,7 @@ export function Screensaver({ photos }: ScreensaverProps) {
   const showForecast = screensaverSettings.showForecast ?? false;
   const showLessons = screensaverSettings.showLessons ?? false;
   const showTrivia = screensaverSettings.showTrivia ?? false;
+  const hasNews = (screensaverSettings.showNews ?? true) && !!news && news.length > 0;
   const weatherEffects = screensaverSettings.weatherEffects ?? false;
 
 
@@ -696,6 +697,7 @@ export function Screensaver({ photos }: ScreensaverProps) {
   // to 60vh and over a large clock on a short landscape panel, worse with the
   // line under the clock. Measured, since the blocks below change height.
   const newsListRef = useRef<HTMLDivElement>(null);
+  const triviaBlockRef = useRef<HTMLDivElement>(null);
   const clockBlockRef = useRef<HTMLDivElement>(null);
   const eventsBlockRef = useRef<HTMLDivElement>(null);
   // The news list shares the top of the screen with the weather column. Its
@@ -759,6 +761,14 @@ export function Screensaver({ photos }: ScreensaverProps) {
         if (r.height === 0 || r.right <= box.left || r.left >= box.right) continue;
         floor = Math.min(floor, r.top);
       }
+      // The trivia card hangs under the list in the same column: the
+      // list stops above the clock and the events, so it must also
+      // leave the trivia's height (and its gap) below itself.
+      const trivia = triviaBlockRef.current;
+      if (trivia) {
+        const th = trivia.getBoundingClientRect().height;
+        if (th > 0) floor -= th + 20;
+      }
       const room = Math.max(0, Math.floor(floor - 24 - box.top));
       setNewsRoom(room);
       // Cut short: fade the last card out rather than slicing it.
@@ -766,13 +776,13 @@ export function Screensaver({ photos }: ScreensaverProps) {
     };
     measure();
     const ro = new ResizeObserver(measure);
-    for (const el of [list, clockBlockRef.current, eventsBlockRef.current]) if (el) ro.observe(el);
+    for (const el of [list, clockBlockRef.current, eventsBlockRef.current, triviaBlockRef.current]) if (el) ro.observe(el);
     window.addEventListener("resize", measure);
     return () => {
       ro.disconnect();
       window.removeEventListener("resize", measure);
     };
-  }, [news, screensaverSettings.showNews, soon, largeDetails, selectedNews]);
+  }, [news, screensaverSettings.showNews, soon, largeDetails, selectedNews, showTrivia]);
 
   // Night: no photo, no news, no events, the clock alone and dim, drifting
   // with the burn-in offsets like everything else here. A touch wakes the
@@ -840,14 +850,18 @@ export function Screensaver({ photos }: ScreensaverProps) {
           are lifted by the floor's height (--idle-creature-floor). */}
       <CreaturesOnIdle />
 
-      {/* News list - top left (always rendered for data-no-wake) */}
-      {(screensaverSettings.showNews ?? true) && news && news.length > 0 && (
+      {/* Top left column: the news list, with the trivia underneath it
+          when both are on; either one also stands here alone. (Always
+          rendered for data-no-wake.) */}
+      {(hasNews || showTrivia) && (
         <div
-          className={`absolute top-12 left-12 w-[min(25rem,55vw)] screensaver-slide-down ${selectedNews ? 'opacity-0 pointer-events-none' : ''}`}
+          className="absolute top-12 left-12 w-[min(25rem,55vw)] screensaver-slide-down"
           style={{ animationDelay: "0.8s", backgroundColor: "rgba(0,0,0,0.001)", ...newsStyle, ...burnInStyle }}
           data-no-wake
           data-saver-block="news"
         >
+          {(screensaverSettings.showNews ?? true) && news && news.length > 0 && (
+          <div className={selectedNews ? "opacity-0 pointer-events-none" : ""}>
           <div className="flex items-center gap-2 text-white/60 mb-3">
             <Newspaper className="size-4" />
             <span className="text-xs landscape:lg:text-sm font-medium uppercase tracking-wider">{t("newsLabel")}</span>
@@ -903,6 +917,13 @@ export function Screensaver({ photos }: ScreensaverProps) {
               </button>
             ))}
           </div>
+          </div>
+          )}
+          {showTrivia && (
+            <div ref={triviaBlockRef} className={hasNews ? "mt-5" : ""}>
+              <ScreensaverTrivia large={largeDetails} />
+            </div>
+          )}
         </div>
       )}
 
@@ -1335,9 +1356,6 @@ export function Screensaver({ photos }: ScreensaverProps) {
 
         {/* The children's lessons and what to bring (#282). */}
         {showLessons && <ScreensaverLessons large={largeDetails} />}
-
-        {/* A rotating "Did you know?" trivia question, same stack. */}
-        {showTrivia && <ScreensaverTrivia large={largeDetails} />}
 
       </div>
       </div>

@@ -17,9 +17,9 @@ const BATCH = 12;
 
 /**
  * A rotating "Did you know?" trivia question on the screensaver: the
- * question sits in the stack with the events and birthdays, its answer
- * fades in halfway through so the room gets a moment to guess, and the
- * next question follows. Questions come from /api/trivia, which samples
+ * question sits under the news list (or in its place, when the news is
+ * off), its answer fades in halfway through so the room gets a moment
+ * to guess, and the next question follows. Questions come from /api/trivia, which samples
  * the Open Trivia DB bank baked into the app, so the screensaver needs
  * no internet for them. Settings -> Screensaver -> Trivia.
  *
