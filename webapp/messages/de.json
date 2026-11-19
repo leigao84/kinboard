@@ -1464,7 +1464,7 @@
       "previewDescription": "Ihn mit den hier gesetzten Optionen sofort auf diesem Bildschirm zeigen. Er bleibt bis zur nächsten Berührung.",
       "previewButton": "Ansehen",
       "showTriviaLabel": "Quizfrage",
-      "showTriviaDescription": "Eine wechselnde „Wusstest du schon?“-Quizfrage bei den Terminen und Geburtstagen; die Antwort erscheint nach wenigen Sekunden",
+      "showTriviaDescription": "Eine wechselnde „Wusstest du schon?“-Quizfrage unter den Nachrichten; die Antwort erscheint nach wenigen Sekunden",
       "weatherEffectsLabel": "Wettereffekte",
       "weatherEffectsDescription": "Schnee, Regen, Frost und mehr über den Fotos, wie auf dem Startbildschirm. Welche Effekte und ab wann, steht unter <link>Wetter</link>.",
       "birthdayCountLabel": "Anzahl der Geburtstage",
