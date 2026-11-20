@@ -435,6 +435,15 @@ function initSolitaire(root: HTMLElement) {
     dragLayer.style.left = dragRect.left + "px";
     dragLayer.style.top = dragRect.top + "px";
     const from = press.source;
+    // The layer needs an explicit height: its cards are absolutely
+    // positioned, so without one it collapses to zero height and the
+    // drop-target overlap math in dropTarget() can never match.
+    let stackH = ch;
+    if (from.zone === "tableau") {
+      const tops = pileTops[from.pile];
+      stackH = tops[from.index + moving.length - 1] - tops[from.index] + ch;
+    }
+    dragLayer.style.height = stackH + "px";
     moving.forEach((card, i) => {
       const d = cardEl(card);
       let top = 0;
