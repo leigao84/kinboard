@@ -131,7 +131,7 @@ export function ScreensaverTrivia({ large }: { large: boolean }) {
         <span className={`${large ? "text-lg" : "text-xs landscape:lg:text-sm"} font-medium uppercase tracking-wider`}>{t("triviaLabel")}</span>
         <span className={`${large ? "text-base" : "text-xs"} text-white/40`}>{category}</span>
       </div>
-      <div className="bg-black/40 rounded-lg px-3 py-2 landscape:lg:px-4 landscape:lg:py-3 gpu-blur">
+      <div className="screensaver-panel rounded-lg px-3 py-2 landscape:lg:px-4 landscape:lg:py-3 gpu-blur">
         <p className={`text-white ${large ? "text-xl" : "text-sm"}`}>{current.q}</p>
         <ul className="mt-2 flex flex-col gap-1" data-testid="trivia-choices">
           {round.choices.map((choice, i) => {

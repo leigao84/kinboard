@@ -7,9 +7,10 @@ import { DesignedScreensaver } from "@/components/layouts/designed-screensaver";
 import { useActiveLayout } from "@/hooks/use-active-layout";
 import { ScreensaverDataProvider, useScreensaverDataValue } from "@/components/layouts/screensaver-data-context";
 import { BirthdayRow, EnergyRows, EventRow, NewsCard, SectionLabel, TeslaRows, useEventWhen, useNewsTime } from "@/components/screensaver-rows";
-import { useState, useEffect, useMemo, useRef, useCallback } from "react";
+import { useState, useEffect, useMemo, useRef, useCallback, type CSSProperties } from "react";
 import { type NewsItem } from "@/hooks";
 import { useScreensaverSettings } from "@/hooks/use-screensaver-settings";
+import { screensaverOverlayOpacity } from "@/types/screensaver";
 import { NewsArticleSheet } from "@/components/news-article-sheet";
 import { Cake, Calendar, Newspaper, X, ExternalLink, BookOpen, Clock } from "lucide-react";
 import { choosePhotoFit, aspectOf } from "@/lib/photo-fit";
@@ -165,6 +166,11 @@ export function Screensaver({ photos }: ScreensaverProps) {
   const showTrivia = screensaverSettings.showTrivia ?? false;
   const hasNews = (screensaverSettings.showNews ?? true) && !!news && news.length > 0;
   const weatherEffects = screensaverSettings.weatherEffects ?? false;
+  // Every dark panel in here shares one fill (.screensaver-panel); its
+  // opacity is the family's Panel opacity setting, published to the
+  // panels as a CSS variable on the root below, so the weather, the
+  // events, the news and the trivia all move together.
+  const overlayOpacity = screensaverOverlayOpacity(screensaverSettings.overlayOpacity);
 
 
 
@@ -341,6 +347,7 @@ export function Screensaver({ photos }: ScreensaverProps) {
         className={`fixed inset-0 z-[100] screensaver-fade-in ${
           currentBlobUrl ? "bg-black" : "screensaver-canvas-empty"
         }`}
+        style={{ "--screensaver-overlay-opacity": overlayOpacity / 100 } as CSSProperties}
       >
         {/* Background Photo - Only render current and previous for performance */}
         <div className="absolute inset-0">
@@ -444,7 +451,7 @@ export function Screensaver({ photos }: ScreensaverProps) {
             className="screensaver-slide-down"
             style={{ animationDelay: "0.9s" }}
           >
-            <div className="bg-black/50 rounded-xl p-4 flex flex-col gap-3 gpu-blur">
+            <div className="screensaver-panel rounded-xl p-4 flex flex-col gap-3 gpu-blur">
               {showEnergyWidget && (
                 <EnergyRows solarPower={solarPower} batterySoc={batterySoc} gridPower={gridPower} scale="normal" />
               )}
