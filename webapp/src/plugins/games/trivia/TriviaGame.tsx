@@ -66,7 +66,7 @@ export function TriviaGame() {
 
       <div className="how"><b>How to play:</b> pick a category and difficulty, then answer 10 questions.
       Right answers earn 100 points, and streaks earn bonus points — how long a streak can you build?
-      Questions are drawn from the Open Trivia Database (CC BY-SA 4.0) and won't repeat until you've seen them all.</div>
+      Questions are drawn from the Open Trivia Database (CC BY-SA 4.0) and won&apos;t repeat until you&apos;ve seen them all.</div>
     </div>
   );
 }

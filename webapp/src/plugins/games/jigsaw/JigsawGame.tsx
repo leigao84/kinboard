@@ -59,7 +59,7 @@ export function JigsawGame() {
           <figcaption>Original · <span id="refLabel"></span></figcaption>
         </figure>
         <div className="how"><b>How to play:</b> the pieces are floating in a pile under the board. Drag a piece
-        onto the board — when it's close to its home spot it snaps in with a click. The faint picture on the
+        onto the board — when it&apos;s close to its home spot it snaps in with a click. The faint picture on the
         board is your guide (turn it off for a real challenge), 👀 peek shows the photo clearly while you
         hold it, and the original is always right here beside the board. The built-in photos come from the
         family album; you can also pick any photo from this device (it never leaves the device).</div>

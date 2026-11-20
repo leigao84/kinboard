@@ -64,7 +64,6 @@ function GameArt({ id }: { id: GameId }) {
   switch (id) {
     case "jigsaw":
       return (
-        // eslint-disable-next-line @next/next/no-img-element
         <img src="/games/jigsaw/photos/photo-7.jpg" alt="" className="size-full object-cover" />
       );
     case "minesweeper":

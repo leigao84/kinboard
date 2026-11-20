@@ -47,7 +47,7 @@ export function SudokuGame() {
       </div>
 
       <div className="how"><b>How to play:</b> tap a square, then tap a number. Turn on ✏️ Notes to pencil in
-      possibilities first. Wrong numbers turn red — there's no limit, just see how few mistakes you can make.
+      possibilities first. Wrong numbers turn red — there&apos;s no limit, just see how few mistakes you can make.
       You can also type with a keyboard (1–9, arrows to move, N for notes).</div>
     </div>
   );
