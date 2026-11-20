@@ -17,7 +17,7 @@ export interface VideoService {
 }
 
 export const VIDEO_SERVICE_CATALOG: readonly VideoService[] = [
-  { name: "YouTube", url: "https://m.youtube.com", color: "#FF0000" },
+  { name: "YouTube", url: "https://www.youtube.com/tv", color: "#FF0000" },
   { name: "Netflix", url: "https://www.netflix.com", color: "#E50914" },
   { name: "Prime Video", url: "https://www.primevideo.com", color: "#00A8E1" },
   { name: "Hulu", url: "https://www.hulu.com", color: "#1CE783" },
