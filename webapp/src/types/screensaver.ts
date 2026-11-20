@@ -42,8 +42,9 @@ export interface ScreensaverSettings {
   // (#282); in the evening the next school day, from the schedule widget's
   // "next school day from" time.
   showLessons?: boolean;
-  // A rotating "Did you know?" trivia question under the news list,
-  // its answer appearing a few seconds after the question (bank: the
+  // A rotating trivia quiz under the news list: the question shows
+  // with all its answers, the wrong ones crossed out one by one
+  // until only the correct one is left (bank: the
   // Open Trivia DB, baked into the app — no network needed).
   showTrivia?: boolean;
   // Home's weather effects (snow, rain, frost...) over the photos too, with
