@@ -4,7 +4,12 @@
 .kb-game-jigsaw, .kb-game-jigsaw * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 .kb-game-jigsaw { background: #f6f1e7; color: #4a3f35; border-radius: 18px;
   display: flex; flex-direction: column; align-items: center; padding: 16px 12px 40px; }
+.kb-game-jigsaw .pickerLabel { font-size: 13px; letter-spacing: .05em; text-transform: uppercase; color: #9a8a76; margin-bottom: 6px; text-align: center; }
 .kb-game-jigsaw .picker { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 12px; max-width: 640px; }
+.kb-game-jigsaw #sampleSlot { margin-bottom: 12px; }
+.kb-game-jigsaw .sampleBtn { background: #fff; color: #4a3f35; border: 2px solid #e3d9c8; box-shadow: none; }
+.kb-game-jigsaw .sampleBtn:disabled { opacity: .45; cursor: default; }
+.kb-game-jigsaw #albumGroup { flex-direction: column; align-items: center; }
 .kb-game-jigsaw .pick { border: 3px solid transparent; border-radius: 12px; padding: 3px; background: #fff; cursor: pointer;
   box-shadow: 0 1px 4px rgba(90,70,40,.15); line-height: 0; }
 .kb-game-jigsaw .pick.on { border-color: #e07856; }

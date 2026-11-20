@@ -5632,7 +5632,10 @@
       "play": "Spielen",
       "jigsaw": {
         "name": "Foto-Puzzle",
-        "tagline": "Familienfotos in echte Puzzleteile geschnitten. Ziehe sie an ihren Platz — das Original bleibt als Hilfe neben dem Brett."
+        "tagline": "Familienfotos in echte Puzzleteile geschnitten. Ziehe sie an ihren Platz — das Original bleibt als Hilfe neben dem Brett.",
+        "yourPhotos": "Eure Fotos",
+        "samplePhotos": "Beispielfotos",
+        "newPhotos": "Neue Fotos"
       },
       "minesweeper": {
         "name": "Minesweeper",

@@ -5632,7 +5632,10 @@
       "play": "开始玩",
       "jigsaw": {
         "name": "照片拼图",
-        "tagline": "把家庭照片切成真正的拼图块。把它们拖回家 — 原图就在棋盘旁边供参考。"
+        "tagline": "把家庭照片切成真正的拼图块。把它们拖回家 — 原图就在棋盘旁边供参考。",
+        "yourPhotos": "你的照片",
+        "samplePhotos": "示例照片",
+        "newPhotos": "换一批照片"
       },
       "minesweeper": {
         "name": "扫雷",

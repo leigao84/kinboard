@@ -1,28 +1,67 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useTranslations } from "next-intl";
+import { usePhotoSource } from "@/hooks";
 
 /**
  * Photo Jigsaw, ported from the family's standalone games site
  * into the Games plugin. Real tab-and-blank pieces, drag-and-snap,
  * a guide image on the board, hold-to-peek — the original game,
  * unchanged below; only element lookups are scoped to this
- * component, the page chrome is Kinboard's, and the built-in
- * photos are static assets the app itself serves
- * (public/games/jigsaw/photos). Upload-your-own still reads the
- * file on the device and nowhere else.
+ * component, and the page chrome is Kinboard's.
+ *
+ * The picker opens on the public-domain samples bundled with the
+ * plugin (public/games/jigsaw/samples), so the game is playable
+ * the moment it loads, on any board. The board's own photos —
+ * the same source the screensaver and the Photos page read
+ * (usePhotoSource) — are opt-in: once that source has settled,
+ * a "New photos" button deals a random handful of them into
+ * their own group in the picker. A board with no photo source
+ * simply never grows the button. Upload-your-own still reads
+ * the file on the device and nowhere else.
  */
 export function JigsawGame() {
   const rootRef = useRef<HTMLDivElement>(null);
+  const handleRef = useRef<JigsawHandle | null>(null);
+  const { photos, isLoading } = usePhotoSource();
+  const t = useTranslations("games.jigsaw");
+
+  useEffect(() => () => handleRef.current?.teardown(), []);
 
   useEffect(() => {
-    if (!rootRef.current) return;
-    return initJigsaw(rootRef.current);
-  }, []);
+    if (!rootRef.current || handleRef.current) return;
+    handleRef.current = initJigsaw(rootRef.current, {
+      samplesLabel: t("samplePhotos"),
+      yoursLabel: t("yourPhotos"),
+      newPhotosLabel: t("newPhotos"),
+    });
+  }, [t]);
+
+  // Hand the settled source list to the game; until this runs (and
+  // forever, on boards with no source) the samples are the game.
+  useEffect(() => {
+    if (isLoading || photos.length === 0) return;
+    handleRef.current?.setAlbumPhotos(
+      photos.map((p) => ({
+        id: `src-${p.id}`,
+        src: p.url,
+        w: p.width ?? 0,
+        h: p.height ?? 0,
+        label: p.metadata?.description ?? "",
+      })),
+    );
+  }, [photos, isLoading]);
 
   return (
     <div ref={rootRef} className="kb-game kb-game-jigsaw">
+      <div className="pickerLabel" id="pickerLabel"></div>
       <div className="picker" id="picker"></div>
+      <div id="sampleSlot"></div>
+      <div id="albumGroup" style={{ display: "none" }}>
+        <div className="pickerLabel" id="albumLabel"></div>
+        <div className="picker" id="albumPicker"></div>
+      </div>
       <input type="file" id="fileInput" accept="image/*" style={{ display: "none" }} />
 
       <div className="bar">
@@ -61,14 +100,39 @@ export function JigsawGame() {
         <div className="how"><b>How to play:</b> the pieces are floating in a pile under the board. Drag a piece
         onto the board — when it&apos;s close to its home spot it snaps in with a click. The faint picture on the
         board is your guide (turn it off for a real challenge), 👀 peek shows the photo clearly while you
-        hold it, and the original is always right here beside the board. The built-in photos come from the
-        family album; you can also pick any photo from this device (it never leaves the device).</div>
+        hold it, and the original is always right here beside the board. The game opens on a few bundled
+        sample photos; if this board has a photo library, the 🎲 New photos button deals in a fresh handful from it — the same
+        photos the screensaver shows. You can also pick any photo from this device (it never leaves
+        the device).</div>
       </div>
     </div>
   );
 }
 
+/**
+ * The bundled default pictures — every one public domain (see
+ * public/games/jigsaw/samples/NOTICE.md for each one's source and
+ * license). These are the game until a board's own photos are
+ * dealt in with the sample button.
+ */
+const SAMPLE_PHOTOS: Photo[] = [
+    { id: "sample-1", src: "/games/jigsaw/samples/sample-1.jpg", w: 1600, h: 1600, label: "Earth, from Apollo 17" },
+    { id: "sample-2", src: "/games/jigsaw/samples/sample-2.jpg", w: 1600, h: 1088, label: "Sierra Nevada, California" },
+    { id: "sample-3", src: "/games/jigsaw/samples/sample-3.jpg", w: 1600, h: 1227, label: "The Grand Canyon" },
+    { id: "sample-4", src: "/games/jigsaw/samples/sample-4.jpg", w: 1280, h: 1600, label: "Portland Head Light" },
+    { id: "sample-5", src: "/games/jigsaw/samples/sample-5.jpg", w: 960, h: 1280, label: "A sea turtle" },
+];
+
+/** How many album photos one press of the sample button deals in. */
+const ALBUM_DRAW = 8;
+
 type Photo = { id: string; src: string; w: number; h: number; label: string };
+
+type JigsawHandle = {
+  /** Offer the board's photos for sampling; empty lists are ignored. */
+  setAlbumPhotos: (list: Photo[]) => void;
+  teardown: () => void;
+};
 type Edges = { R: number[][]; B: number[][] };
 type Piece = {
   id: number; r: number; c: number; el: HTMLDivElement;
@@ -80,21 +144,12 @@ type Layout = {
   trayTop: number; trayH: number;
 };
 
-function initJigsaw(root: HTMLElement) {
+function initJigsaw(
+  root: HTMLElement,
+  opts: { samplesLabel: string; yoursLabel: string; newPhotosLabel: string },
+): JigsawHandle {
   const el = <T extends HTMLElement = HTMLElement>(id: string) => root.querySelector<T>("#" + id)!;
 
-  /* Built-in photos: the newest 8 from the family's iCloud shared album,
-     carried into the app as static assets when the game moved in. */
-  const PHOTOS: Photo[] = [
-    { id: "photo-1", src: "/games/jigsaw/photos/photo-1.jpg", w: 1536, h: 2048, label: "Oct 2026" },
-    { id: "photo-2", src: "/games/jigsaw/photos/photo-2.jpg", w: 1536, h: 2048, label: "Sep 2026" },
-    { id: "photo-3", src: "/games/jigsaw/photos/photo-3.jpg", w: 2048, h: 1536, label: "Aug 2026" },
-    { id: "photo-4", src: "/games/jigsaw/photos/photo-4.jpg", w: 1536, h: 2048, label: "Aug 2026" },
-    { id: "photo-5", src: "/games/jigsaw/photos/photo-5.jpg", w: 1536, h: 2048, label: "Aug 2026" },
-    { id: "photo-6", src: "/games/jigsaw/photos/photo-6.jpg", w: 1536, h: 2048, label: "Aug 2026" },
-    { id: "photo-7", src: "/games/jigsaw/photos/photo-7.jpg", w: 2048, h: 1536, label: "Aug 2026" },
-    { id: "photo-8", src: "/games/jigsaw/photos/photo-8.jpg", w: 2048, h: 1536, label: "Aug 2026" },
-  ];
   const TARGETS: Record<string, number> = { easy: 12, normal: 24, hard: 48 };
   const M = 27; // viewBox margin around a 100-unit cell, for the knobs
 
@@ -162,7 +217,7 @@ function initJigsaw(root: HTMLElement) {
   const guideTgl = el<HTMLInputElement>("guideTgl");
   const diffEl = el<HTMLSelectElement>("diff");
 
-  let photo: Photo = PHOTOS[0];
+  let photo: Photo = SAMPLE_PHOTOS[0];
   let cols = 0, rows = 0, edges: Edges = { R: [], B: [] }, pieces: Piece[] = [], moves = 0, won = false, zTop = 20;
   let L: Layout | null = null; // layout metrics
   const timeouts: ReturnType<typeof setTimeout>[] = [];
@@ -354,25 +409,97 @@ function initJigsaw(root: HTMLElement) {
     renderStats();
   }
 
-  /* Photo picker: album photos + an upload tile */
+  /* Photo picker: the bundled samples form the default strip; the
+     board's own photos get a second strip of their own below. */
   const picker = el("picker");
-  function addPick(p: Photo) {
+  el("pickerLabel").textContent = opts.samplesLabel;
+  const albumGroup = el("albumGroup");
+  const albumPicker = el("albumPicker");
+  el("albumLabel").textContent = opts.yoursLabel;
+  const sampleSlot = el("sampleSlot");
+
+  function activate(p: Photo, btn: HTMLElement) {
+    photo = p;
+    root.querySelectorAll(".pick").forEach(elm => elm.classList.remove("on"));
+    btn.classList.add("on");
+    newGame();
+  }
+
+  /* A photo's pixel size may not be known yet — most sources do not
+     report one — so measure it the way the screensaver does, by
+     loading it; the picker thumbnail has usually warmed the cache
+     already. The sequence guard keeps a slow probe from overriding
+     a newer tap. */
+  let selectSeq = 0;
+  function selectPhoto(p: Photo, btn: HTMLElement) {
+    const seq = ++selectSeq;
+    if (p.w > 0 && p.h > 0) { activate(p, btn); return; }
+    const probe = new Image();
+    probe.onload = () => {
+      if (seq === selectSeq) {
+        activate({ ...p, w: probe.naturalWidth || 4, h: probe.naturalHeight || 3 }, btn);
+      }
+    };
+    probe.onerror = () => { if (seq === selectSeq) activate({ ...p, w: 4, h: 3 }, btn); };
+    probe.src = p.src;
+  }
+
+  function addPick(p: Photo, strip: HTMLElement) {
     const btn = document.createElement("button");
-    btn.className = "pick" + (p === photo ? " on" : "");
+    btn.className = "pick";
     btn.title = p.label;
     const img = document.createElement("img");
     img.src = p.src; img.alt = p.label;
     btn.appendChild(img);
-    btn.addEventListener("click", () => {
-      photo = p;
-      picker.querySelectorAll(".pick").forEach(elm => elm.classList.remove("on"));
-      btn.classList.add("on");
-      newGame();
-    });
-    picker.appendChild(btn);
+    btn.addEventListener("click", () => selectPhoto(p, btn));
+    strip.appendChild(btn);
     return btn;
   }
-  PHOTOS.forEach(addPick);
+  const firstBtn = SAMPLE_PHOTOS.map((p) => addPick(p, picker))[0];
+
+  /* The board's photo source, sampled. setAlbumPhotos hands over the
+     full settled list; until then — and forever, on boards with no
+     source — there is no button and the samples are the game. A draw
+     only rebuilds the album strip: a puzzle in progress is never
+     touched, and starting one still happens by picking a photo. */
+  let albumAll: Photo[] = [];
+  let albumShown: Photo[] = [];
+  let sampleBtn: HTMLButtonElement | null = null;
+
+  function drawAlbumSample() {
+    const pool = [...albumAll];
+    let draw: Photo[] = [];
+    for (let attempt = 0; attempt < 4; attempt++) {
+      // Fisher–Yates over the full list, then take the draw — so a
+      // re-roll reaches every photo in the source, not just the top.
+      for (let i = pool.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [pool[i], pool[j]] = [pool[j], pool[i]];
+      }
+      draw = pool.slice(0, ALBUM_DRAW);
+      const sameAsShown =
+        draw.length === albumShown.length &&
+        draw.every((p) => albumShown.some((q) => q.id === p.id));
+      if (!sameAsShown || albumAll.length <= ALBUM_DRAW) break;
+    }
+    albumShown = draw;
+    albumPicker.querySelectorAll(".pick").forEach((elm) => elm.remove());
+    draw.forEach((p) => addPick(p, albumPicker));
+    albumGroup.style.display = "flex";
+    // A source no bigger than one draw has nothing left to re-roll.
+    if (sampleBtn && albumAll.length <= ALBUM_DRAW) sampleBtn.disabled = true;
+  }
+
+  function setAlbumPhotos(list: Photo[]) {
+    if (list.length === 0) return;
+    albumAll = list;
+    if (sampleBtn) return;
+    sampleBtn = document.createElement("button");
+    sampleBtn.className = "sampleBtn";
+    sampleBtn.textContent = `🎲 ${opts.newPhotosLabel}`;
+    sampleBtn.addEventListener("click", drawAlbumSample);
+    sampleSlot.appendChild(sampleBtn);
+  }
   const upBtn = document.createElement("button");
   upBtn.className = "pick up";
   upBtn.textContent = "📷";
@@ -387,10 +514,7 @@ function initJigsaw(root: HTMLElement) {
     const url = URL.createObjectURL(f);
     const img = new Image();
     img.onload = () => {
-      photo = { id: "upload", src: url, w: img.naturalWidth, h: img.naturalHeight, label: "Your photo" };
-      picker.querySelectorAll(".pick").forEach(elm => elm.classList.remove("on"));
-      upBtn.classList.add("on");
-      newGame();
+      activate({ id: "upload", src: url, w: img.naturalWidth, h: img.naturalHeight, label: "Your photo" }, upBtn);
     };
     img.src = url;
     input.value = "";
@@ -416,11 +540,14 @@ function initJigsaw(root: HTMLElement) {
   }
   window.addEventListener("resize", onResize);
 
-  newGame();
+  if (firstBtn) selectPhoto(SAMPLE_PHOTOS[0], firstBtn);
 
-  return () => {
-    timeouts.forEach(clearTimeout);
-    if (resizeTimer) clearTimeout(resizeTimer);
-    window.removeEventListener("resize", onResize);
+  return {
+    setAlbumPhotos,
+    teardown: () => {
+      timeouts.forEach(clearTimeout);
+      if (resizeTimer) clearTimeout(resizeTimer);
+      window.removeEventListener("resize", onResize);
+    },
   };
 }

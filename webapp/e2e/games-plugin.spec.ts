@@ -116,4 +116,44 @@ test.describe("games plugin", () => {
     }
     expect(missing, `Games copy missing:\n  ${missing.join("\n  ")}`).toEqual([]);
   });
+
+  test("the jigsaw opens on bundled samples; the board's photos are dealt in on request", () => {
+    const game = read(join(SRC, "plugins", "games", "jigsaw", "JigsawGame.tsx"));
+    // The picker defaults to the bundled public-domain set: playable on
+    // load, on any board, with no fetch involved.
+    expect(game).toContain("SAMPLE_PHOTOS");
+    expect(game).toContain("/games/jigsaw/samples/sample-");
+    // The board's own photos come from the same source the screensaver
+    // and the Photos page read, handed over whole once it settles.
+    expect(game).toContain("usePhotoSource");
+    expect(game).toContain("setAlbumPhotos");
+    // A draw shuffles the full list and takes eight — never a slice of
+    // the most recent — and only rebuilds the album strip.
+    expect(game).toContain("ALBUM_DRAW = 8");
+    expect(game).toContain("pool.slice(0, ALBUM_DRAW)");
+    expect(game).toContain("drawAlbumSample");
+    expect(game).not.toContain("photos.slice");
+    // No baked-in photos ship any more: a family's album belongs to
+    // that family's board, not to the app.
+    expect(game).not.toContain("/games/jigsaw/photos/");
+    expect(existsSync(join(WEBAPP, "public", "games", "jigsaw", "photos"))).toBe(false);
+    const hub = read(join(SRC, "app", "games", "page.tsx"));
+    expect(hub).not.toContain("/games/jigsaw/photos/");
+    expect(hub).toContain("/games/jigsaw/samples/");
+    // The fallback set ships with the plugin, provenance included.
+    const samplesDir = join(WEBAPP, "public", "games", "jigsaw", "samples");
+    for (const n of [1, 2, 3, 4, 5]) {
+      expect(existsSync(join(samplesDir, `sample-${n}.jpg`)), `sample-${n}.jpg bundled`).toBe(true);
+    }
+    expect(existsSync(join(samplesDir, "NOTICE.md")), "sample provenance ships").toBe(true);
+    // The picker says whose photos these are, in every language.
+    for (const locale of LOCALES) {
+      const bundle = JSON.parse(read(join(MESSAGES, `${locale}.json`)));
+      for (const path of ["games.jigsaw.yourPhotos", "games.jigsaw.samplePhotos", "games.jigsaw.newPhotos"]) {
+        const value = lookup(bundle, path);
+        expect(typeof value, `${locale}: ${path}`).toBe("string");
+        expect((value as string).trim()).not.toBe("");
+      }
+    }
+  });
 });

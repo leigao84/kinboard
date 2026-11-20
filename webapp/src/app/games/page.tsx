@@ -64,7 +64,7 @@ function GameArt({ id }: { id: GameId }) {
   switch (id) {
     case "jigsaw":
       return (
-        <img src="/games/jigsaw/photos/photo-7.jpg" alt="" className="size-full object-cover" />
+        <img src="/games/jigsaw/samples/sample-1.jpg" alt="" className="size-full object-cover" />
       );
     case "minesweeper":
       return (

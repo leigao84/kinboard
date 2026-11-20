@@ -5632,7 +5632,10 @@
       "play": "Play",
       "jigsaw": {
         "name": "Photo Jigsaw",
-        "tagline": "Family photos cut into real jigsaw pieces. Drag them home — the original stays beside the board to help."
+        "tagline": "Family photos cut into real jigsaw pieces. Drag them home — the original stays beside the board to help.",
+        "yourPhotos": "Your photos",
+        "samplePhotos": "Sample photos",
+        "newPhotos": "New photos"
       },
       "minesweeper": {
         "name": "Minesweeper",

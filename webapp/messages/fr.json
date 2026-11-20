@@ -5632,7 +5632,10 @@
       "play": "Jouer",
       "jigsaw": {
         "name": "Puzzle photo",
-        "tagline": "Des photos de famille découpées en vraies pièces de puzzle. Faites-les glisser à leur place — l'original reste à côté du plateau pour aider."
+        "tagline": "Des photos de famille découpées en vraies pièces de puzzle. Faites-les glisser à leur place — l'original reste à côté du plateau pour aider.",
+        "yourPhotos": "Vos photos",
+        "samplePhotos": "Photos d'exemple",
+        "newPhotos": "Nouvelles photos"
       },
       "minesweeper": {
         "name": "Démineur",
