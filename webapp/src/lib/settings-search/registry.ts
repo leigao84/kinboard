@@ -311,7 +311,7 @@ export const SETTINGS_ENTRIES: readonly SettingsEntry[] = [
     { anchor: "watchlist", labelKey: "settings.stonks.watchlistHeading" },
   ]),
   ...sectionsOf(games, [
-    { anchor: "portal", labelKey: "settings.games.portalHeading" },
+    { anchor: "library", labelKey: "settings.games.libraryHeading" },
   ]),
   ...sectionsOf(videos, [
     { anchor: "services", labelKey: "settings.videos.servicesHeading" },

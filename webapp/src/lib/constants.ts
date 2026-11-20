@@ -57,10 +57,9 @@ export const NO_NAV_PATHS = ["/join", "/einkaufen", "/setup"] as const;
  * screensaver covered the prompt mid-entry, which reads as the prompt timing
  * out on you. Settings is an actively-used surface anyway.
  *
- * `/games` is here because the portal is framed: taps inside the frame
- * never reach this page's idle listeners, so a long think over a puzzle
- * would read as nobody at the screen and the screensaver would cover
- * the game mid-play.
+ * `/games` is here because a game is an actively used surface: a long
+ * think over a puzzle, without a tap, reads as nobody at the screen
+ * and the screensaver would cover the game mid-play.
  */
 export const SCREENSAVER_SKIP_PATHS = [...NO_NAV_PATHS, "/settings", "/games"] as const;
 

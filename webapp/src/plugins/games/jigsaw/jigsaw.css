@@ -1,0 +1,41 @@
+/* Photo Jigsaw's own stylesheet, carried over from the standalone
+   game and scoped to its root so it can live inside Kinboard.
+   The font is Kinboard's — nothing here sets one. */
+.kb-game-jigsaw, .kb-game-jigsaw * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+.kb-game-jigsaw { background: #f6f1e7; color: #4a3f35; border-radius: 18px;
+  display: flex; flex-direction: column; align-items: center; padding: 16px 12px 40px; }
+.kb-game-jigsaw .picker { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 12px; max-width: 640px; }
+.kb-game-jigsaw .pick { border: 3px solid transparent; border-radius: 12px; padding: 3px; background: #fff; cursor: pointer;
+  box-shadow: 0 1px 4px rgba(90,70,40,.15); line-height: 0; }
+.kb-game-jigsaw .pick.on { border-color: #e07856; }
+.kb-game-jigsaw .pick img { width: 64px; height: 64px; object-fit: cover; border-radius: 8px; display: block; }
+.kb-game-jigsaw .pick.up { display: flex; align-items: center; justify-content: center; width: 70px; height: 70px;
+  font-size: 26px; color: #9a8a76; }
+.kb-game-jigsaw .bar { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; align-items: center; margin-bottom: 12px; }
+.kb-game-jigsaw button, .kb-game-jigsaw select { font: inherit; font-size: 15px; border: none; border-radius: 999px; padding: 9px 16px;
+  background: #e07856; color: #fff; cursor: pointer; box-shadow: 0 2px 5px rgba(90,70,40,.2); }
+.kb-game-jigsaw button.ghost { background: #fff; color: #4a3f35; border: 2px solid #e3d9c8; box-shadow: none; }
+.kb-game-jigsaw button:active { transform: scale(.96); }
+.kb-game-jigsaw select { background: #fff; color: #4a3f35; border: 2px solid #e3d9c8; box-shadow: none; }
+.kb-game-jigsaw label.tgl { display: inline-flex; gap: 6px; align-items: center; font-size: 14.5px; background: #fff;
+  border: 2px solid #e3d9c8; border-radius: 999px; padding: 7px 13px; cursor: pointer; }
+.kb-game-jigsaw .stats { display: flex; gap: 18px; font-size: 15px; color: #7a6a58; margin-bottom: 10px; }
+.kb-game-jigsaw .stats b { color: #4a3f35; }
+.kb-game-jigsaw #stage { position: relative; width: min(100%, 880px); }
+.kb-game-jigsaw #boardFrame { position: absolute; border-radius: 10px; overflow: hidden; pointer-events: none;
+  box-shadow: 0 0 0 3px #d8cbb4, 0 4px 18px rgba(90,70,40,.18); background: #fff; }
+.kb-game-jigsaw #boardFrame img { width: 100%; height: 100%; display: block; }
+.kb-game-jigsaw .piece { position: absolute; cursor: grab; touch-action: none; filter: drop-shadow(0 3px 4px rgba(60,40,10,.35)); }
+.kb-game-jigsaw .piece svg { display: block; width: 100%; height: 100%; pointer-events: none; }
+.kb-game-jigsaw .piece.snapped { cursor: default; filter: drop-shadow(0 0 0 rgba(0,0,0,0)); }
+.kb-game-jigsaw .piece.dragging { cursor: grabbing; filter: drop-shadow(0 10px 14px rgba(60,40,10,.45)); }
+.kb-game-jigsaw .belowstage { display: flex; gap: 16px; align-items: flex-start; justify-content: center; flex-wrap: wrap;
+  width: min(100%, 880px); margin-top: 14px; }
+.kb-game-jigsaw figure.ref { margin: 0; background: #fff; padding: 8px 8px 4px; border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(90,70,40,.18); width: 170px; flex: none; }
+.kb-game-jigsaw figure.ref img { width: 100%; border-radius: 8px; display: block; }
+.kb-game-jigsaw figure.ref figcaption { text-align: center; font-size: 13px; color: #9a8a76; padding: 5px 0 3px; }
+.kb-game-jigsaw .how { flex: 1; min-width: 230px; max-width: 480px; color: #9a8a76; font-size: 13.5px; line-height: 1.55; }
+.kb-game-jigsaw #win { display: none; margin-top: 16px; background: #fff; border: 2px solid #ffd166; border-radius: 16px;
+  padding: 16px 22px; text-align: center; box-shadow: 0 4px 18px rgba(90,70,40,.18); }
+.kb-game-jigsaw #win .big { font-size: 24px; font-weight: 700; margin-bottom: 4px; }

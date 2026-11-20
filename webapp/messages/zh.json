@@ -1093,7 +1093,7 @@
     "itemStonksLabel": "股票与观察列表",
     "itemStonksDescription": "管理你的投资观察列表",
     "itemGamesLabel": "游戏",
-    "itemGamesDescription": "游戏按钮打开的游戏门户",
+    "itemGamesDescription": "Kinboard 内置的游戏",
     "itemVideosLabel": "视频",
     "itemVideosDescription": "视频按钮打开的流媒体服务",
     "itemPocketMoneyLabel": "零花钱",
@@ -2755,20 +2755,15 @@
         "pocket-money": "按孩子划分的虚拟零花钱账户，具有可配置的零花钱、每日利息累积、储蓄目标，以及随着孩子储蓄而进化的头像。",
         "photos": "在看板本身浏览照片库，而不仅仅是在空闲屏幕上。使用你已连接的任何来源 — Immich、DLNA 媒体服务器或 iCloud 共享相册。",
         "media": "直接在看板上控制 Home Assistant 已经知道的扬声器和屏幕。",
-        "games": "你自己的游戏门户，在 Kinboard 内打开 — 看板的导航保持在屏幕上。",
+        "games": "Kinboard 内置的游戏 — 拼图、扫雷、数独、Wordle 和知识问答，直接在看板上玩。",
         "videos": "看板上的流媒体服务：YouTube、Netflix 和家里的其他服务，只需点击一次。"
       }
     },
     "games": {
       "title": "游戏",
-      "description": "游戏按钮打开的游戏门户",
-      "intro": "导航中的游戏按钮在 Kinboard 内打开一个游戏门户 — 你自己的一个页面，被框在里面，因此看板始终只需点击一次即可到达。",
-      "portalHeading": "游戏门户",
-      "urlLabel": "门户地址",
-      "urlHint": "游戏按钮框住的页面。该门户必须允许在另一个页面内显示。",
-      "saveButton": "保存",
-      "saved": "已保存",
-      "saveFailed": "无法保存 — 请重试"
+      "description": "Kinboard 内置的游戏",
+      "intro": "导航中的游戏按钮打开游戏架。每个游戏都内置在 Kinboard 中，直接在此设备上运行 — 无需托管门户，也无需设置地址。",
+      "libraryHeading": "内置游戏"
     },
     "videos": {
       "title": "视频",
@@ -3562,7 +3557,7 @@
       "energy": "能源，太阳能，光伏，电池，电网，电力，电",
       "cameras": "摄像头，门铃，CCTV，安防，RTSP，go2rtc，视频",
       "stonks": "股票，股份，观察列表，投资，ETF，投资组合",
-      "games": "游戏，玩，门户，游戏门户",
+      "games": "游戏，玩，拼图，扫雷，数独，Wordle，问答",
       "videos": "视频，流媒体，观看，电视，netflix，youtube，hulu，disney",
       "pocket-money": "零花钱，孩子，储蓄，利息，钱，积分，奖励，任务积分",
       "media-players": "媒体，音乐，扬声器，Sonos，电视，播放器，投射",
@@ -3629,7 +3624,7 @@
       "integrations_tokens": "现有令牌，撤销，API 密钥，访问",
       "stonks_add-symbol": "添加代码，股票代码，股票，股份，ETF，搜索",
       "stonks_watchlist": "观察列表，股票，股份，移除，昵称",
-      "games_portal": "门户，地址，网址，链接，游戏页面",
+      "games_library": "游戏，游戏库，内置，拼图，扫雷，数独，Wordle，问答",
       "videos_services": "服务，youtube，netflix，prime video，hulu，disney+，流媒体",
       "videos_custom": "自己的服务，添加服务，自定义，链接，地址",
       "pocket-money_currency": "货币，欧元，美元，英镑，钱",
@@ -5630,15 +5625,32 @@
     "startFailed": "无法启动该计时器",
     "soundOff": "声音关闭，直到有人触摸此屏幕",
     "soundOffShort": "点按开启声音"
-  },
-  "games": {
-    "title": "游戏",
-    "frameTitle": "游戏门户",
-    "loading": "正在加载游戏…",
-    "openExternal": "在新标签页中打开",
-    "mixedContent": "此门户无法在此处显示：Kinboard 通过 HTTPS 提供服务，但门户地址是 HTTP，浏览器拒绝混合两者。改为给门户一个 HTTPS 地址。",
-    "settingsLink": "游戏设置"
-  },
+  },"games": {
+      "title": "游戏",
+      "intro": "就住在这块看板里的游戏 — 选一个就开始玩，不需要联网。",
+      "backToGames": "所有游戏",
+      "play": "开始玩",
+      "jigsaw": {
+        "name": "照片拼图",
+        "tagline": "把家庭照片切成真正的拼图块。把它们拖回家 — 原图就在棋盘旁边供参考。"
+      },
+      "minesweeper": {
+        "name": "扫雷",
+        "tagline": "经典扫雷。数字告诉你附近有什么 — 标出地雷，清空雷区。第一次点击永远安全。"
+      },
+      "sudoku": {
+        "name": "数独",
+        "tagline": "每行、每列、每宫都要把 1–9 各填一次。三种难度的全新题目，每道都只有唯一解。"
+      },
+      "wordle": {
+        "name": "Wordle",
+        "tagline": "六次机会猜出五个字母的单词，使用真正的 Wordle 词表。每局都是新词。"
+      },
+      "trivia": {
+        "name": "知识问答",
+        "tagline": "从数千道题的题库中抽十题 — 选分类和难度，连对得分，冲击最高分。"
+      }
+    },
   "videos": {
     "title": "视频",
     "intro": "点按一个服务以全屏打开它。浏览器的后退按钮会带你回到 Kinboard。",

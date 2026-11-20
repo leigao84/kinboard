@@ -1093,7 +1093,7 @@
     "itemStonksLabel": "Actions & Liste de suivi",
     "itemStonksDescription": "Gérer votre liste de suivi d'investissements",
     "itemGamesLabel": "Jeux",
-    "itemGamesDescription": "Le portail de jeux ouvert par le bouton Jeux",
+    "itemGamesDescription": "Les jeux intégrés à Kinboard",
     "itemVideosLabel": "Vidéos",
     "itemVideosDescription": "Les services de streaming qu'ouvre le bouton Vidéos",
     "itemPocketMoneyLabel": "Argent de poche",
@@ -2755,20 +2755,15 @@
         "pocket-money": "Comptes d'argent de poche virtuels par enfant avec allocation configurable, intérêts courus quotidiennement, objectifs d'épargne et un avatar qui évolue à mesure que l'enfant économise.",
         "photos": "Parcourez la photothèque sur le tableau lui-même, pas seulement sur l'écran de veille. Utilise la source que vous avez connectée — Immich, un serveur multimédia DLNA ou un album partagé iCloud.",
         "media": "Contrôlez depuis le tableau les enceintes et écrans que Home Assistant connaît déjà.",
-        "games": "Un portail de jeux à vous, ouvert dans Kinboard — la navigation du tableau reste visible.",
+        "games": "Des jeux intégrés à Kinboard — puzzle, démineur, sudoku, wordle et quiz, joués directement sur le tableau.",
         "videos": "Les services de streaming sur le tableau : YouTube, Netflix et les autres services de la famille, à un toucher."
       }
     },
     "games": {
       "title": "Jeux",
-      "description": "Le portail de jeux ouvert par le bouton Jeux",
-      "intro": "Le bouton Jeux dans la navigation ouvre un portail de jeux dans Kinboard — une page à vous, intégrée, pour garder le tableau à un toucher.",
-      "portalHeading": "Portail de jeux",
-      "urlLabel": "Adresse du portail",
-      "urlHint": "La page intégrée par le bouton Jeux. Le portail doit autoriser l'affichage à l'intérieur d'une autre page.",
-      "saveButton": "Enregistrer",
-      "saved": "Enregistré",
-      "saveFailed": "Échec de l'enregistrement — veuillez réessayer"
+      "description": "Les jeux intégrés à Kinboard",
+      "intro": "Le bouton Jeux dans la navigation ouvre l'étagère de jeux. Chaque jeu est intégré à Kinboard et fonctionne directement sur cet appareil — aucun portail à héberger, aucune adresse à régler.",
+      "libraryHeading": "Jeux intégrés"
     },
     "videos": {
       "title": "Vidéos",
@@ -3562,7 +3557,7 @@
       "energy": "énergie, électricité, solaire, photovoltaïque, batterie, réseau",
       "cameras": "caméra, caméras, sonnette, interphone, surveillance, RTSP, go2rtc, vidéo",
       "stonks": "actions, bourse, liste de suivi, investissements, ETF, portefeuille",
-      "games": "jeux, jouer, portail, portail de jeux",
+      "games": "jeux, jouer, puzzle, démineur, sudoku, wordle, quiz",
       "videos": "vidéos, streaming, regarder, tv, netflix, youtube, hulu, disney",
       "pocket-money": "argent de poche, enfants, épargne, intérêts, argent, points, récompenses, points de tâches",
       "media-players": "médias, musique, enceintes, Sonos, télé, lecteurs",
@@ -3629,7 +3624,7 @@
       "integrations_tokens": "jetons existants, révoquer, clés API, accès",
       "stonks_add-symbol": "ajouter un symbole, ticker, action, ETF, rechercher",
       "stonks_watchlist": "liste de suivi, actions, supprimer, surnom",
-      "games_portal": "portail, adresse, URL, lien, page de jeux",
+      "games_library": "jeux, bibliothèque, intégrés, puzzle, démineur, sudoku, wordle, quiz",
       "videos_services": "services, youtube, netflix, prime video, hulu, disney+, streaming",
       "videos_custom": "propres services, ajouter un service, personnalisé, lien, adresse",
       "pocket-money_currency": "devise, monnaie, euro, dollar, livre, argent",
@@ -5630,15 +5625,32 @@
     "startFailed": "Impossible de lancer ce minuteur",
     "soundOff": "Son coupé jusqu'à ce que quelqu'un touche cet écran",
     "soundOffShort": "Touchez pour le son"
-  },
-  "games": {
-    "title": "Jeux",
-    "frameTitle": "Portail de jeux",
-    "loading": "Chargement des jeux…",
-    "openExternal": "Ouvrir dans un nouvel onglet",
-    "mixedContent": "Ce portail ne peut pas s'afficher ici : Kinboard est servi en HTTPS mais l'adresse du portail est en HTTP, et les navigateurs refusent ce mélange. Donnez plutôt une adresse HTTPS au portail.",
-    "settingsLink": "Réglages des jeux"
-  },
+  },"games": {
+      "title": "Jeux",
+      "intro": "Des jeux qui vivent ici même, sur le tableau — choisissez-en un et jouez. Pas besoin d'internet.",
+      "backToGames": "Tous les jeux",
+      "play": "Jouer",
+      "jigsaw": {
+        "name": "Puzzle photo",
+        "tagline": "Des photos de famille découpées en vraies pièces de puzzle. Faites-les glisser à leur place — l'original reste à côté du plateau pour aider."
+      },
+      "minesweeper": {
+        "name": "Démineur",
+        "tagline": "La chasse aux mines classique. Les chiffres disent ce qui est proche — marquez les mines et dégagez le champ. Le premier toucher est toujours sûr."
+      },
+      "sudoku": {
+        "name": "Sudoku",
+        "tagline": "Chaque ligne, colonne et boîte reçoit 1 à 9 exactement une fois. Des grilles fraîches en trois difficultés, chacune avec une seule solution."
+      },
+      "wordle": {
+        "name": "Wordle",
+        "tagline": "Devinez le mot de cinq lettres en six essais, avec les vraies listes de mots Wordle. Un mot frais à chaque partie."
+      },
+      "trivia": {
+        "name": "Quiz",
+        "tagline": "Dix questions tirées d'une banque de milliers — choisissez une catégorie et une difficulté, enchaînez les bonnes réponses, visez le meilleur score."
+      }
+    },
   "videos": {
     "title": "Vidéos",
     "intro": "Touchez un service pour l'ouvrir en plein écran. Le bouton retour de votre navigateur vous ramène à Kinboard.",

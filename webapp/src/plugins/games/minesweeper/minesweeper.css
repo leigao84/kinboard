@@ -1,0 +1,38 @@
+/* Minesweeper's own stylesheet, carried over from the standalone
+   game and scoped to its root so it can live inside Kinboard.
+   The font is Kinboard's — nothing here sets one. */
+.kb-game-minesweeper, .kb-game-minesweeper * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+.kb-game-minesweeper { background: #f6f1e7; color: #4a3f35; border-radius: 18px;
+  display: flex; flex-direction: column; align-items: center; padding: 16px 12px 40px;
+  -webkit-touch-callout: none; }
+.kb-game-minesweeper .bar { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; align-items: center; margin-bottom: 12px; }
+.kb-game-minesweeper button, .kb-game-minesweeper select { font: inherit; font-size: 15px; border: none; border-radius: 999px; padding: 9px 16px;
+  background: #e07856; color: #fff; cursor: pointer; box-shadow: 0 2px 5px rgba(90,70,40,.2); }
+.kb-game-minesweeper button.ghost { background: #fff; color: #4a3f35; border: 2px solid #e3d9c8; box-shadow: none; }
+.kb-game-minesweeper button.ghost.on { background: #ffd166; border-color: #e0a92e; }
+.kb-game-minesweeper button:active { transform: scale(.96); }
+.kb-game-minesweeper select { background: #fff; color: #4a3f35; border: 2px solid #e3d9c8; box-shadow: none; }
+.kb-game-minesweeper .panel { display: flex; gap: 14px; align-items: center; background: #fff; border-radius: 999px;
+  padding: 7px 18px; box-shadow: 0 2px 8px rgba(90,70,40,.15); margin-bottom: 12px; font-size: 16px; }
+.kb-game-minesweeper .panel .lcd { font-variant-numeric: tabular-nums; font-weight: 700; background: #26324B; color: #ff5d5d;
+  border-radius: 7px; padding: 2px 9px; min-width: 58px; text-align: center; letter-spacing: 1px; }
+.kb-game-minesweeper #face { font-size: 22px; background: none; box-shadow: none; padding: 2px 4px; }
+.kb-game-minesweeper .boardwrap { max-width: 97vw; overflow-x: auto; background: #fff; padding: 10px; border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(90,70,40,.18); }
+.kb-game-minesweeper #board { display: grid; gap: 2.5px; margin: 0 auto; user-select: none; }
+.kb-game-minesweeper .cell { border: none; padding: 0; border-radius: 22%; cursor: pointer; font-weight: 800;
+  font-size: calc(var(--cell) * 0.52); line-height: 1; display: flex; align-items: center; justify-content: center;
+  background: #b9c8b4; box-shadow: inset 0 -3px 4px rgba(0,0,0,.16), inset 0 3px 4px rgba(255,255,255,.5);
+  touch-action: none; width: var(--cell); height: var(--cell); }
+.kb-game-minesweeper .cell.open { background: #efe9db; box-shadow: inset 0 1px 3px rgba(90,70,40,.25); cursor: default; }
+.kb-game-minesweeper .cell.mine { background: #f3b8b0; }
+.kb-game-minesweeper .cell.boom { background: #e5484d; }
+.kb-game-minesweeper .cell.flag { font-size: calc(var(--cell) * 0.58); }
+.kb-game-minesweeper .cell.wrongflag { background: #f3b8b0; }
+.kb-game-minesweeper .n1 { color: #4361EE; } .kb-game-minesweeper .n2 { color: #22B14C; }
+.kb-game-minesweeper .n3 { color: #E01E37; } .kb-game-minesweeper .n4 { color: #26324B; }
+.kb-game-minesweeper .n5 { color: #8A5A33; } .kb-game-minesweeper .n6 { color: #12B5CB; }
+.kb-game-minesweeper .n7 { color: #111; } .kb-game-minesweeper .n8 { color: #777; }
+.kb-game-minesweeper #banner { display: none; margin-top: 16px; background: #fff; border: 2px solid #ffd166; border-radius: 16px;
+  padding: 14px 22px; text-align: center; box-shadow: 0 4px 18px rgba(90,70,40,.18); font-size: 17px; }
+.kb-game-minesweeper .how { max-width: 560px; color: #9a8a76; font-size: 13.5px; text-align: center; margin-top: 16px; line-height: 1.55; }

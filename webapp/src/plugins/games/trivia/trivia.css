@@ -1,0 +1,43 @@
+/* Trivia's own stylesheet, carried over from the standalone game
+   and scoped to its root so it can live inside Kinboard.
+   The font is Kinboard's — nothing here sets one. */
+.kb-game-trivia, .kb-game-trivia * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+.kb-game-trivia { background: #f6f1e7; color: #4a3f35; border-radius: 18px;
+  display: flex; flex-direction: column; align-items: center; padding: 16px 12px 40px; }
+.kb-game-trivia button, .kb-game-trivia select { font: inherit; font-size: 15.5px; border: none; border-radius: 999px; padding: 10px 18px;
+  background: #e07856; color: #fff; cursor: pointer; box-shadow: 0 2px 5px rgba(90,70,40,.2); }
+.kb-game-trivia button:active { transform: scale(.96); }
+.kb-game-trivia select { background: #fff; color: #4a3f35; border: 2px solid #e3d9c8; box-shadow: none; max-width: 92vw; }
+.kb-game-trivia .panel { background: #fff; border-radius: 18px; box-shadow: 0 4px 18px rgba(90,70,40,.15);
+  padding: 20px; width: min(94vw, 620px); }
+.kb-game-trivia .setuprow { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.kb-game-trivia .setuprow label { font-size: 13.5px; color: #9a8a76; font-weight: 600; text-transform: uppercase; letter-spacing: .4px; }
+.kb-game-trivia .setuprow select { width: 100%; border-radius: 12px; }
+.kb-game-trivia #startBtn { width: 100%; font-size: 17px; padding: 13px; }
+.kb-game-trivia .banknote { text-align: center; color: #9a8a76; font-size: 13.5px; margin-top: 12px; }
+.kb-game-trivia .topbar { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 8px;
+  font-size: 14.5px; color: #7a6a58; }
+.kb-game-trivia .topbar b { color: #4a3f35; }
+.kb-game-trivia .progress { height: 9px; background: #efe7d8; border-radius: 99px; overflow: hidden; margin-bottom: 14px; }
+.kb-game-trivia .progress > div { height: 100%; background: #e07856; border-radius: 99px; transition: width .3s ease; }
+.kb-game-trivia .chips { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+.kb-game-trivia .chip { font-size: 12.5px; background: #f3ecdc; color: #7a6a58; border-radius: 999px; padding: 4px 10px; }
+.kb-game-trivia #qtext { font-size: 20px; font-weight: 650; line-height: 1.4; margin: 2px 0 16px; }
+.kb-game-trivia .answers { display: flex; flex-direction: column; gap: 9px; }
+.kb-game-trivia .ans { text-align: left; background: #fdfaf3; color: #4a3f35; border: 2px solid #e3d9c8; border-radius: 14px;
+  padding: 13px 16px; font-size: 16.5px; box-shadow: none; display: flex; gap: 10px; align-items: baseline; }
+.kb-game-trivia .ans .letter { font-weight: 800; color: #c8b890; }
+.kb-game-trivia .ans:not(:disabled):active { transform: scale(.98); }
+.kb-game-trivia .ans.right { background: #dff2da; border-color: #6aaa64; color: #2f5d2a; }
+.kb-game-trivia .ans.wrong { background: #fbe3e0; border-color: #e5484d; color: #8c2b2e; }
+.kb-game-trivia .ans.dim { opacity: .55; }
+.kb-game-trivia .ans:disabled { cursor: default; }
+.kb-game-trivia #feedback { min-height: 26px; font-size: 16px; font-weight: 650; margin: 14px 0 4px; text-align: center; }
+.kb-game-trivia #nextBtn { width: 100%; display: none; font-size: 16.5px; padding: 12px; }
+.kb-game-trivia #endPanel { text-align: center; }
+.kb-game-trivia #endPanel .big { font-size: 27px; font-weight: 800; margin-bottom: 4px; }
+.kb-game-trivia #endPanel .score { font-size: 19px; margin-bottom: 6px; }
+.kb-game-trivia #endPanel .sub { color: #9a8a76; font-size: 14.5px; margin-bottom: 16px; }
+.kb-game-trivia #endPanel .row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.kb-game-trivia #endPanel button.ghost { background: #fff; color: #4a3f35; border: 2px solid #e3d9c8; box-shadow: none; }
+.kb-game-trivia .how { max-width: 560px; color: #9a8a76; font-size: 13.5px; text-align: center; margin-top: 16px; line-height: 1.55; }

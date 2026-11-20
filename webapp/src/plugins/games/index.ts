@@ -2,13 +2,15 @@ import { Gamepad2 } from "lucide-react";
 import type { SurfacePlugin } from "../types";
 
 /**
- * The games portal.
+ * The games shelf.
  *
- * A surface for the games shelf a family hosts itself (the Gao family's
- * lives at play.gaofam.cc): the nav button opens the portal inside
- * Kinboard, framed, so the board's navigation stays on screen and
- * nobody is stranded on an outside page with no way back. The portal
- * address is a family setting (Settings → Games); the plugin itself
+ * The games are built into Kinboard itself: the nav button opens a
+ * hub of games that ship with the app (jigsaw, minesweeper, sudoku,
+ * wordle, trivia) and run on the device — nothing is framed and
+ * nothing is fetched from outside, so nobody is stranded on an
+ * external page with no way back. (Until this plugin grew up, the
+ * button framed a separate games site the family hosted; the games
+ * moved in and the portal address setting went away.) The plugin
  * holds no data, so it is visible whenever it is enabled.
  */
 export const gamesPlugin: SurfacePlugin = {

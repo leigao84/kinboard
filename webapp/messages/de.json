@@ -1093,7 +1093,7 @@
     "itemStonksLabel": "Aktien & Watchlist",
     "itemStonksDescription": "Investitions-Watchlist verwalten",
     "itemGamesLabel": "Spiele",
-    "itemGamesDescription": "Das Spieleportal, das die Spiele-Schaltfläche öffnet",
+    "itemGamesDescription": "Die in Kinboard eingebauten Spiele",
     "itemVideosLabel": "Videos",
     "itemVideosDescription": "Die Streamingdienste, die die Videos-Schaltfläche öffnet",
     "itemPocketMoneyLabel": "Taschengeld",
@@ -2755,20 +2755,15 @@
         "pocket-money": "Virtuelle Taschengeld-Konten für Kinder mit konfigurierbarem Taschengeld, täglicher Zinsgutschrift, Sparzielen und einem Avatar, der mit dem Ersparten wächst.",
         "photos": "Die Fotomediathek auf dem Board selbst durchsehen, nicht nur auf dem Ruhebildschirm. Nutzt die verbundene Quelle — Immich, einen DLNA-Medienserver oder ein geteiltes iCloud-Album.",
         "media": "Steuere Lautsprecher und Bildschirme, die Home Assistant bereits kennt, direkt vom Board aus.",
-        "games": "Ein eigenes Spieleportal, geöffnet in Kinboard — die Navigation des Boards bleibt sichtbar.",
+        "games": "In Kinboard eingebaute Spiele — Puzzle, Minesweeper, Sudoku, Wordle und Quiz, direkt auf dem Board gespielt.",
         "videos": "Streamingdienste am Board: YouTube, Netflix und die anderen Dienste der Familie, einen Fingertipp entfernt."
       }
     },
     "games": {
       "title": "Spiele",
-      "description": "Das Spieleportal, das die Spiele-Schaltfläche öffnet",
-      "intro": "Die Spiele-Schaltfläche in der Navigation öffnet ein Spieleportal in Kinboard — eine eigene Seite, eingebettet, damit das Board immer einen Tipp entfernt ist.",
-      "portalHeading": "Spieleportal",
-      "urlLabel": "Portaladresse",
-      "urlHint": "Die Seite, die die Spiele-Schaltfläche einbettet. Das Portal muss die Anzeige innerhalb einer anderen Seite erlauben.",
-      "saveButton": "Speichern",
-      "saved": "Gespeichert",
-      "saveFailed": "Speichern fehlgeschlagen — bitte erneut versuchen"
+      "description": "Die in Kinboard eingebauten Spiele",
+      "intro": "Die Spiele-Schaltfläche in der Navigation öffnet das Spiele-Regal. Jedes Spiel ist in Kinboard eingebaut und läuft direkt auf diesem Gerät — es gibt kein Portal zu hosten und keine Adresse einzustellen.",
+      "libraryHeading": "Eingebaute Spiele"
     },
     "videos": {
       "title": "Videos",
@@ -3562,7 +3557,7 @@
       "energy": "Energie, Strom, Solar, PV, Photovoltaik, Batterie, Speicher, Netz",
       "cameras": "Kamera, Kameras, Türklingel, Klingel, Überwachung, RTSP, go2rtc, Video",
       "stonks": "Aktien, Watchlist, Anlagen, Börse, ETF, Depot",
-      "games": "Spiele, spielen, Portal, Spieleportal",
+      "games": "Spiele, spielen, Puzzle, Minesweeper, Sudoku, Wordle, Quiz",
       "videos": "Videos, Streaming, schauen, TV, Netflix, YouTube, Hulu, Disney",
       "pocket-money": "Taschengeld, Kinder, Sparen, Zinsen, Geld, Konto, Punkte, Belohnungen, Aufgabenpunkte",
       "media-players": "Medien, Musik, Lautsprecher, Sonos, Fernseher, TV, Player",
@@ -3629,7 +3624,7 @@
       "integrations_tokens": "vorhandene Tokens, widerrufen, API-Schlüssel, Zugriff",
       "stonks_add-symbol": "Symbol hinzufügen, Ticker, Aktie, ETF, suchen",
       "stonks_watchlist": "Watchlist, Beobachtungsliste, Aktien, entfernen, Spitzname",
-      "games_portal": "Portal, Adresse, URL, Link, Spieleseite",
+      "games_library": "Spiele, Bibliothek, eingebaut, Puzzle, Minesweeper, Sudoku, Wordle, Quiz",
       "videos_services": "Dienste, YouTube, Netflix, Prime Video, Hulu, Disney+, Streaming",
       "videos_custom": "eigene Dienste, Dienst hinzufügen, benutzerdefiniert, Link, Adresse",
       "pocket-money_currency": "Währung, Euro, Dollar, Pfund, Geld",
@@ -5630,15 +5625,32 @@
     "startFailed": "Timer konnte nicht gestartet werden",
     "soundOff": "Ton aus, bis jemand diesen Bildschirm berührt",
     "soundOffShort": "Tippen für Ton"
-  },
-  "games": {
-    "title": "Spiele",
-    "frameTitle": "Spieleportal",
-    "loading": "Spiele werden geladen…",
-    "openExternal": "In neuem Tab öffnen",
-    "mixedContent": "Dieses Portal kann hier nicht angezeigt werden: Kinboard läuft über HTTPS, die Portaladresse aber über HTTP — Browser verweigern diese Mischung. Gib dem Portal stattdessen eine HTTPS-Adresse.",
-    "settingsLink": "Spiele-Einstellungen"
-  },
+  },"games": {
+      "title": "Spiele",
+      "intro": "Spiele, die direkt hier auf dem Board leben — eines aussuchen und losspielen. Kein Internet nötig.",
+      "backToGames": "Alle Spiele",
+      "play": "Spielen",
+      "jigsaw": {
+        "name": "Foto-Puzzle",
+        "tagline": "Familienfotos in echte Puzzleteile geschnitten. Ziehe sie an ihren Platz — das Original bleibt als Hilfe neben dem Brett."
+      },
+      "minesweeper": {
+        "name": "Minesweeper",
+        "tagline": "Die klassische Minensuche. Zahlen verraten, was in der Nähe ist — markiere die Minen und räume das Feld. Der erste Tipp ist immer sicher."
+      },
+      "sudoku": {
+        "name": "Sudoku",
+        "tagline": "Jede Reihe, Spalte und Box bekommt 1–9 genau einmal. Frische Rätsel in drei Schwierigkeiten, jedes mit nur einer Lösung."
+      },
+      "wordle": {
+        "name": "Wordle",
+        "tagline": "Errate das fünfbuchstabige Wort in sechs Versuchen, mit den echten Wordle-Wortlisten. Jedes Spiel ein frisches Wort."
+      },
+      "trivia": {
+        "name": "Quiz",
+        "tagline": "Zehn Fragen aus einer Bank mit Tausenden — Kategorie und Schwierigkeit wählen, eine Serie aufbauen, den Rekord jagen."
+      }
+    },
   "videos": {
     "title": "Videos",
     "intro": "Tippe auf einen Dienst, um ihn im Vollbild zu öffnen. Die Zurück-Schaltfläche deines Browsers bringt dich zu Kinboard zurück.",

@@ -1,0 +1,41 @@
+/* Sudoku's own stylesheet, carried over from the standalone game
+   and scoped to its root so it can live inside Kinboard.
+   The font is Kinboard's — nothing here sets one. */
+.kb-game-sudoku, .kb-game-sudoku * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+.kb-game-sudoku { background: #f6f1e7; color: #4a3f35; border-radius: 18px;
+  display: flex; flex-direction: column; align-items: center; padding: 16px 12px 40px; }
+.kb-game-sudoku .bar { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; align-items: center; margin-bottom: 12px; }
+.kb-game-sudoku button, .kb-game-sudoku select { font: inherit; font-size: 15px; border: none; border-radius: 999px; padding: 9px 16px;
+  background: #e07856; color: #fff; cursor: pointer; box-shadow: 0 2px 5px rgba(90,70,40,.2); }
+.kb-game-sudoku button.ghost { background: #fff; color: #4a3f35; border: 2px solid #e3d9c8; box-shadow: none; }
+.kb-game-sudoku button.ghost.on { background: #ffd166; border-color: #e0a92e; }
+.kb-game-sudoku button:active { transform: scale(.96); }
+.kb-game-sudoku select { background: #fff; color: #4a3f35; border: 2px solid #e3d9c8; box-shadow: none; }
+.kb-game-sudoku .stats { display: flex; gap: 18px; font-size: 15px; color: #7a6a58; margin-bottom: 10px; }
+.kb-game-sudoku .stats b { color: #4a3f35; }
+.kb-game-sudoku #board { display: grid; grid-template-columns: repeat(9, 1fr); width: min(94vw, 470px); aspect-ratio: 1;
+  background: #fff; border: 3px solid #4a3f35; border-radius: 8px; overflow: hidden;
+  box-shadow: 0 4px 18px rgba(90,70,40,.18); user-select: none; }
+.kb-game-sudoku .cell { display: flex; align-items: center; justify-content: center; cursor: pointer; position: relative;
+  border-right: 1px solid #ddd2be; border-bottom: 1px solid #ddd2be; font-size: clamp(17px, 5.4vw, 27px); }
+.kb-game-sudoku .cell:nth-child(3n) { border-right: 3px solid #4a3f35; }
+.kb-game-sudoku .cell:nth-child(9n) { border-right: none; }
+.kb-game-sudoku .cell:nth-child(n+19):nth-child(-n+27), .kb-game-sudoku .cell:nth-child(n+46):nth-child(-n+54) { border-bottom: 3px solid #4a3f35; }
+.kb-game-sudoku .cell:nth-child(n+73) { border-bottom: none; }
+.kb-game-sudoku .cell.given { font-weight: 700; color: #26324B; cursor: default; }
+.kb-game-sudoku .cell.user { color: #4361EE; }
+.kb-game-sudoku .cell.peer { background: #f3ecdc; }
+.kb-game-sudoku .cell.same { background: #f8dcc8; }
+.kb-game-sudoku .cell.sel { background: #ffd166 !important; }
+.kb-game-sudoku .cell.bad { color: #E01E37 !important; }
+.kb-game-sudoku .cell .notes { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; height: 100%;
+  font-size: clamp(8px, 2.4vw, 11px); color: #9a8a76; line-height: 1; }
+.kb-game-sudoku .cell .notes span { display: flex; align-items: center; justify-content: center; }
+.kb-game-sudoku #pad { display: flex; gap: 6px; margin-top: 14px; flex-wrap: wrap; justify-content: center; max-width: 500px; }
+.kb-game-sudoku #pad button { width: 46px; height: 52px; border-radius: 12px; font-size: 21px; font-weight: 700; padding: 0; }
+.kb-game-sudoku #pad button.util { width: auto; padding: 0 14px; font-size: 15px; font-weight: 400; }
+.kb-game-sudoku #msg { min-height: 22px; font-size: 14.5px; color: #b3542e; margin-top: 10px; text-align: center; }
+.kb-game-sudoku #win { display: none; margin-top: 12px; background: #fff; border: 2px solid #ffd166; border-radius: 16px;
+  padding: 16px 22px; text-align: center; box-shadow: 0 4px 18px rgba(90,70,40,.18); }
+.kb-game-sudoku #win .big { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+.kb-game-sudoku .how { max-width: 560px; color: #9a8a76; font-size: 13.5px; text-align: center; margin-top: 16px; line-height: 1.55; }
