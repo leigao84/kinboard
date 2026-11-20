@@ -1982,6 +1982,83 @@ paths:
         "502": { description: "A trusted assistant's request ran, but Kinboard could not tell whether it took effect (`allowed_by_trust`, `reason`). It may or may not have happened." }
         "503": { description: "Kinboard could not check the PIN or this assistant's pending requests. Nothing was done." }
 
+  /pocket-money/ledger-sync:
+    post:
+      tags: [state]
+      summary: Reconcile pocket money to the Allowance Ledger's state
+      description: |
+        The Allowance Ledger — the household's own app, the single source of
+        truth for the children's pocket money — pushes its FULL state for
+        the accounts it manages, and Kinboard reconciles: entries are
+        adopted, inserted, updated and deleted until each account matches
+        the push, and the balance becomes the ledger's sum. Kinboard's side
+        is display-only, so a transaction on a named account that no pushed
+        entry mirrors is removed.
+
+        An entry keeps its identity through `entry_id`, the ledger's own id:
+        an edit there updates the same transaction here, a delete there
+        deletes it here. A transaction already on the account with a new
+        entry's amount is adopted (and normalised to the entry's note, type
+        and date) rather than duplicated. `entry_date` lands on the timeline
+        at noon America/Los_Angeles on that date; `auto` entries (the
+        ledger's own weekly allowance) become type `allowance`, other
+        entries `manual_deposit` or `withdrawal` by their sign.
+
+        No Idempotency-Key: the push asserts a state, so a repeat is a
+        no-op by construction and answers with zero counts — safe to call on
+        every ledger save and again on a timer. A push naming an account
+        outside the token's family is refused whole (`400`,
+        `reason: unknown_account`) before anything is written; accounts the
+        push does not name are left alone.
+      x-required-scope: pocket_money:write
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [accounts]
+              properties:
+                accounts:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: object
+                    required: [account_id, entries]
+                    properties:
+                      account_id: { type: string, format: uuid }
+                      entries:
+                        type: array
+                        items:
+                          type: object
+                          required: [entry_id, amount_cents, entry_date, auto]
+                          properties:
+                            entry_id: { type: integer, minimum: 1 }
+                            amount_cents: { type: integer }
+                            note: { type: [string, "null"], maxLength: 1000 }
+                            entry_date: { type: string, format: date }
+                            auto: { type: boolean }
+      responses:
+        "200":
+          description: The accounts now match the push; the counts say what it took
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [adopted, inserted, updated, deleted, balances]
+                properties:
+                  adopted: { type: integer }
+                  inserted: { type: integer }
+                  updated: { type: integer }
+                  deleted: { type: integer }
+                  balances:
+                    type: object
+                    description: Each named account's new balance, in cents
+                    additionalProperties: { type: integer }
+        "400": { $ref: "#/components/responses/InvalidRequest" }
+        "401": { $ref: "#/components/responses/Unauthenticated" }
+        "429": { $ref: "#/components/responses/RateLimited" }
+
   /rewards:
     get:
       tags: [state]
