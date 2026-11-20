@@ -1482,6 +1482,21 @@
       "previewButton": "Aperçu",
       "panelOpacityLabel": "Opacité des panneaux",
       "panelOpacityDescription": "À quel point les panneaux sombres de l'écran de veille — météo, événements, actualités et quiz — apparaissent sur vos photos.",
+      "panelColorLabel": "Couleur des panneaux",
+      "panelColorDescription": "La couleur des panneaux de l'écran de veille — météo, événements, actualités et quiz.",
+      "panelColor": {
+        "black": "Noir",
+        "graphite": "Graphite",
+        "grey": "Gris",
+        "silver": "Argent",
+        "white": "Blanc"
+      },
+      "panelTextColorLabel": "Couleur du texte des panneaux",
+      "panelTextColorDescription": "La couleur du texte sur les panneaux. Tant que vous n'en choisissez pas, elle suit la couleur des panneaux — blanc sur les panneaux foncés, noir sur les clairs.",
+      "panelTextColor": {
+        "white": "Blanc",
+        "black": "Noir"
+      },
       "showTriviaLabel": "Question quiz",
       "showTriviaDescription": "Une question quiz qui défile sous les actualités avec toutes ses réponses ; les mauvaises sont barrées une à une jusqu'à ce qu'il ne reste que la bonne",
       "weatherEffectsLabel": "Effets météo",
@@ -3593,6 +3608,8 @@
       "screensaver_lessons": "emploi du temps, école, matières, sport, affaires de sport, emporter, enfants, cours",
       "screensaver_preview": "aperçu, afficher, montrer, essayer, tester, voir",
       "screensaver_panel-opacity": "opacité, panneaux, translucide, transparent, lisibilité, fond",
+      "screensaver_panel-color": "couleur des panneaux, gris, argent, blanc, noir, graphite, fond",
+      "screensaver_panel-text-color": "couleur du texte, texte noir, texte blanc, écriture",
       "screensaver_trivia": "quiz, le saviez-vous, questions, culture générale, jeu",
       "screensaver_weather-effects": "effets météo, neige, pluie, givre, brouillard, orage, animation, météo",
       "screensaver_night": "nuit, sombre, atténué, coucher, horloge seule, marquage",

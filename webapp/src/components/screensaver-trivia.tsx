@@ -132,7 +132,7 @@ export function ScreensaverTrivia({ large }: { large: boolean }) {
         <span className={`${large ? "text-base" : "text-xs"} text-white/40`}>{category}</span>
       </div>
       <div className="screensaver-panel rounded-lg px-3 py-2 landscape:lg:px-4 landscape:lg:py-3 gpu-blur">
-        <p className={`text-white ${large ? "text-xl" : "text-sm"}`}>{current.q}</p>
+        <p className={`panel-fg ${large ? "text-xl" : "text-sm"}`}>{current.q}</p>
         <ul className="mt-2 flex flex-col gap-1" data-testid="trivia-choices">
           {round.choices.map((choice, i) => {
             const isStruck = struck.has(i);
@@ -144,10 +144,10 @@ export function ScreensaverTrivia({ large }: { large: boolean }) {
                 data-struck={isStruck || undefined}
                 className={`flex items-start gap-1.5 transition-all duration-700 ${large ? "text-lg" : "text-sm"} ${
                   isStruck
-                    ? "text-white/40 line-through opacity-50"
+                    ? "panel-fg-40 line-through opacity-50"
                     : isWinner
-                      ? "font-semibold text-amber-200"
-                      : "text-white/90"
+                      ? "font-semibold panel-amber"
+                      : "panel-fg-90"
                 }`}
               >
                 <Check

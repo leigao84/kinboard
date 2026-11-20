@@ -255,6 +255,8 @@ export const SETTINGS_ENTRIES: readonly SettingsEntry[] = [
     { anchor: "lessons", labelKey: "settings.screensaver.showLessonsLabel", descriptionKey: "settings.screensaver.showLessonsDescription" },
     { anchor: "preview", labelKey: "settings.screensaver.previewLabel", descriptionKey: "settings.screensaver.previewDescription" },
     { anchor: "panel-opacity", labelKey: "settings.screensaver.panelOpacityLabel", descriptionKey: "settings.screensaver.panelOpacityDescription" },
+    { anchor: "panel-color", labelKey: "settings.screensaver.panelColorLabel", descriptionKey: "settings.screensaver.panelColorDescription" },
+    { anchor: "panel-text-color", labelKey: "settings.screensaver.panelTextColorLabel", descriptionKey: "settings.screensaver.panelTextColorDescription" },
     { anchor: "trivia", labelKey: "settings.screensaver.showTriviaLabel", descriptionKey: "settings.screensaver.showTriviaDescription" },
     { anchor: "weather-effects", labelKey: "settings.screensaver.weatherEffectsLabel" },
     { anchor: "night", labelKey: "settings.screensaver.nightLabel" },
