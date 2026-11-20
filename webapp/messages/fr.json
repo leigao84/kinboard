@@ -468,6 +468,7 @@
     "photos": "Photos",
     "media": "Média",
     "games": "Jeux",
+    "videos": "Vidéos",
     "rewards": "Récompenses"
   },
   "cameras": {
@@ -1093,6 +1094,8 @@
     "itemStonksDescription": "Gérer votre liste de suivi d'investissements",
     "itemGamesLabel": "Jeux",
     "itemGamesDescription": "Le portail de jeux ouvert par le bouton Jeux",
+    "itemVideosLabel": "Vidéos",
+    "itemVideosDescription": "Les services de streaming qu'ouvre le bouton Vidéos",
     "itemPocketMoneyLabel": "Argent de poche",
     "itemPocketMoneyDescription": "Gérer les comptes des enfants, l'argent de poche et les intérêts",
     "itemCreaturesLabel": "Créatures et récompenses",
@@ -2731,7 +2734,8 @@
         "pocket-money": "Argent de poche",
         "photos": "Photos",
         "media": "Média",
-        "games": "Jeux"
+        "games": "Jeux",
+        "videos": "Vidéos"
       },
       "description": {
         "vehicles": "Suivez les voitures de votre foyer via les entités Home Assistant. Les pilotes Tesla et VE générique sont inclus.",
@@ -2741,7 +2745,8 @@
         "pocket-money": "Comptes d'argent de poche virtuels par enfant avec allocation configurable, intérêts courus quotidiennement, objectifs d'épargne et un avatar qui évolue à mesure que l'enfant économise.",
         "photos": "Parcourez la photothèque sur le tableau lui-même, pas seulement sur l'écran de veille. Utilise la source que vous avez connectée — Immich, un serveur multimédia DLNA ou un album partagé iCloud.",
         "media": "Contrôlez depuis le tableau les enceintes et écrans que Home Assistant connaît déjà.",
-        "games": "Un portail de jeux à vous, ouvert dans Kinboard — la navigation du tableau reste visible."
+        "games": "Un portail de jeux à vous, ouvert dans Kinboard — la navigation du tableau reste visible.",
+        "videos": "Les services de streaming sur le tableau : YouTube, Netflix et les autres services de la famille, à un toucher."
       }
     },
     "games": {
@@ -2751,6 +2756,23 @@
       "portalHeading": "Portail de jeux",
       "urlLabel": "Adresse du portail",
       "urlHint": "La page intégrée par le bouton Jeux. Le portail doit autoriser l'affichage à l'intérieur d'une autre page.",
+      "saveButton": "Enregistrer",
+      "saved": "Enregistré",
+      "saveFailed": "Échec de l'enregistrement — veuillez réessayer"
+    },
+    "videos": {
+      "title": "Vidéos",
+      "description": "Les services de streaming qu'ouvre le bouton Vidéos",
+      "intro": "Le bouton Vidéos dans la navigation ouvre une page de services de streaming. Choisissez quels services intégrés apparaissent, et ajoutez les vôtres.",
+      "servicesHeading": "Services",
+      "customHeading": "Vos propres services",
+      "showService": "Afficher {name}",
+      "removeService": "Retirer {name}",
+      "noCustom": "Aucun service à vous pour l'instant — ajoutez-en un ci-dessous.",
+      "nameLabel": "Nom",
+      "urlLabel": "Adresse",
+      "addButton": "Ajouter le service",
+      "invalidService": "Donnez un nom au service et une adresse http(s) valide",
       "saveButton": "Enregistrer",
       "saved": "Enregistré",
       "saveFailed": "Échec de l'enregistrement — veuillez réessayer"
@@ -3531,6 +3553,7 @@
       "cameras": "caméra, caméras, sonnette, interphone, surveillance, RTSP, go2rtc, vidéo",
       "stonks": "actions, bourse, liste de suivi, investissements, ETF, portefeuille",
       "games": "jeux, jouer, portail, portail de jeux",
+      "videos": "vidéos, streaming, regarder, tv, netflix, youtube, hulu, disney",
       "pocket-money": "argent de poche, enfants, épargne, intérêts, argent, points, récompenses, points de tâches",
       "media-players": "médias, musique, enceintes, Sonos, télé, lecteurs",
       "google": "Google, Google Agenda, compte, synchroniser",
@@ -3596,6 +3619,8 @@
       "stonks_add-symbol": "ajouter un symbole, ticker, action, ETF, rechercher",
       "stonks_watchlist": "liste de suivi, actions, supprimer, surnom",
       "games_portal": "portail, adresse, URL, lien, page de jeux",
+      "videos_services": "services, youtube, netflix, prime video, hulu, disney+, streaming",
+      "videos_custom": "propres services, ajouter un service, personnalisé, lien, adresse",
       "pocket-money_currency": "devise, monnaie, euro, dollar, livre, argent",
       "google_auto-sync": "synchronisation automatique, intervalle, synchroniser Google, fréquence",
       "google_calendars": "calendriers, agendas Google, quels calendriers, activer, couleurs",
@@ -5602,6 +5627,12 @@
     "openExternal": "Ouvrir dans un nouvel onglet",
     "mixedContent": "Ce portail ne peut pas s'afficher ici : Kinboard est servi en HTTPS mais l'adresse du portail est en HTTP, et les navigateurs refusent ce mélange. Donnez plutôt une adresse HTTPS au portail.",
     "settingsLink": "Réglages des jeux"
+  },
+  "videos": {
+    "title": "Vidéos",
+    "intro": "Touchez un service pour l'ouvrir en plein écran. Le bouton retour de votre navigateur vous ramène à Kinboard.",
+    "empty": "Aucun service vidéo n'est encore activé pour cette famille.",
+    "settingsLink": "Réglages Vidéos"
   },
   "media": {
     "title": "Média",

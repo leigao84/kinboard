@@ -180,6 +180,7 @@ test.describe("the settings menu comes from the registry", () => {
         "/settings/media-players",
         // The Games plugin's portal address.
         "/settings/games",
+        "/settings/videos",
       ],
     };
     const after: Record<string, string[]> = {};

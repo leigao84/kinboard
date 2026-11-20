@@ -49,6 +49,9 @@ export const SETTINGS_KEYS = {
   // The games portal address the Games plugin frames (lib/games.ts);
   // absent means the default portal.
   gamesPortalUrl: "games_portal_url",
+  // The streaming services the Videos plugin lists (lib/videos.ts);
+  // absent means the built-in catalog.
+  videosServices: "videos_services",
   bringSettings: "bring_settings",
   photoSource: "photo_source",
   settingsPin: "settings_pin",

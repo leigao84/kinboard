@@ -14,6 +14,7 @@ import {
   LayoutDashboard,
   GraduationCap,
   Gamepad2,
+  Clapperboard,
   History,
   Home,
   KeyRound,
@@ -148,6 +149,7 @@ const stonks = page({ id: "stonks", href: "/settings/stonks", section: "sectionI
 const pocketMoney = page({ id: "pocket-money", href: "/settings/pocket-money", section: "sectionIntegrations", labelKey: "settings.itemPocketMoneyLabel", descriptionKey: "settings.itemPocketMoneyDescription", icon: PiggyBank, menu: true, visibility: { plugin: "pocket-money" } });
 const mediaPlayers = page({ id: "media-players", href: "/settings/media-players", section: "sectionIntegrations", labelKey: "media.settingsTitle", descriptionKey: "media.settingsDescription", icon: Music, menu: true, visibility: { plugin: "media" } });
 const games = page({ id: "games", href: "/settings/games", section: "sectionIntegrations", labelKey: "settings.itemGamesLabel", descriptionKey: "settings.itemGamesDescription", icon: Gamepad2, menu: true, visibility: { plugin: "games" } });
+const videos = page({ id: "videos", href: "/settings/videos", section: "sectionIntegrations", labelKey: "settings.itemVideosLabel", descriptionKey: "settings.itemVideosDescription", icon: Clapperboard, menu: true, visibility: { plugin: "videos" } });
 
 // Reached from another settings page rather than the menu.
 const google = page({ id: "google", href: "/settings/google", section: "sectionIntegrations", labelKey: "settings.itemGoogleLabel", descriptionKey: "settings.itemGoogleDescription", icon: Calendar });
@@ -194,6 +196,7 @@ export const SETTINGS_ENTRIES: readonly SettingsEntry[] = [
   pocketMoney,
   mediaPlayers,
   games,
+  videos,
   google,
   ics,
   caldav,
@@ -308,6 +311,10 @@ export const SETTINGS_ENTRIES: readonly SettingsEntry[] = [
   ]),
   ...sectionsOf(games, [
     { anchor: "portal", labelKey: "settings.games.portalHeading" },
+  ]),
+  ...sectionsOf(videos, [
+    { anchor: "services", labelKey: "settings.videos.servicesHeading" },
+    { anchor: "custom", labelKey: "settings.videos.customHeading" },
   ]),
   ...sectionsOf(pocketMoney, [
     { anchor: "currency", labelKey: "settings.pocketMoney.currencyLabel" },

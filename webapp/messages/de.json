@@ -468,6 +468,7 @@
     "photos": "Fotos",
     "media": "Medien",
     "games": "Spiele",
+    "videos": "Videos",
     "rewards": "Belohnungen"
   },
   "cameras": {
@@ -1093,6 +1094,8 @@
     "itemStonksDescription": "Investitions-Watchlist verwalten",
     "itemGamesLabel": "Spiele",
     "itemGamesDescription": "Das Spieleportal, das die Spiele-Schaltfläche öffnet",
+    "itemVideosLabel": "Videos",
+    "itemVideosDescription": "Die Streamingdienste, die die Videos-Schaltfläche öffnet",
     "itemPocketMoneyLabel": "Taschengeld",
     "itemPocketMoneyDescription": "Kinderkonten, Taschengelder und Zinsen verwalten",
     "itemCreaturesLabel": "Kreaturen & Belohnungen",
@@ -2731,7 +2734,8 @@
         "pocket-money": "Taschengeld",
         "photos": "Fotos",
         "media": "Medien",
-        "games": "Spiele"
+        "games": "Spiele",
+        "videos": "Videos"
       },
       "description": {
         "vehicles": "Fahrzeuge im Haushalt über Home-Assistant-Entitäten verfolgen. Tesla- und Generic-EV-Treiber sind im Kern enthalten.",
@@ -2741,7 +2745,8 @@
         "pocket-money": "Virtuelle Taschengeld-Konten für Kinder mit konfigurierbarem Taschengeld, täglicher Zinsgutschrift, Sparzielen und einem Avatar, der mit dem Ersparten wächst.",
         "photos": "Die Fotomediathek auf dem Board selbst durchsehen, nicht nur auf dem Ruhebildschirm. Nutzt die verbundene Quelle — Immich, einen DLNA-Medienserver oder ein geteiltes iCloud-Album.",
         "media": "Steuere Lautsprecher und Bildschirme, die Home Assistant bereits kennt, direkt vom Board aus.",
-        "games": "Ein eigenes Spieleportal, geöffnet in Kinboard — die Navigation des Boards bleibt sichtbar."
+        "games": "Ein eigenes Spieleportal, geöffnet in Kinboard — die Navigation des Boards bleibt sichtbar.",
+        "videos": "Streamingdienste am Board: YouTube, Netflix und die anderen Dienste der Familie, einen Fingertipp entfernt."
       }
     },
     "games": {
@@ -2751,6 +2756,23 @@
       "portalHeading": "Spieleportal",
       "urlLabel": "Portaladresse",
       "urlHint": "Die Seite, die die Spiele-Schaltfläche einbettet. Das Portal muss die Anzeige innerhalb einer anderen Seite erlauben.",
+      "saveButton": "Speichern",
+      "saved": "Gespeichert",
+      "saveFailed": "Speichern fehlgeschlagen — bitte erneut versuchen"
+    },
+    "videos": {
+      "title": "Videos",
+      "description": "Die Streamingdienste, die die Videos-Schaltfläche öffnet",
+      "intro": "Die Videos-Schaltfläche in der Navigation öffnet eine Seite mit Streamingdiensten. Wähle, welche der eingebauten Dienste erscheinen, und füge eigene hinzu.",
+      "servicesHeading": "Dienste",
+      "customHeading": "Eigene Dienste",
+      "showService": "{name} anzeigen",
+      "removeService": "{name} entfernen",
+      "noCustom": "Noch keine eigenen Dienste — füge unten einen hinzu.",
+      "nameLabel": "Name",
+      "urlLabel": "Adresse",
+      "addButton": "Dienst hinzufügen",
+      "invalidService": "Gib dem Dienst einen Namen und eine gültige http(s)-Adresse",
       "saveButton": "Speichern",
       "saved": "Gespeichert",
       "saveFailed": "Speichern fehlgeschlagen — bitte erneut versuchen"
@@ -3531,6 +3553,7 @@
       "cameras": "Kamera, Kameras, Türklingel, Klingel, Überwachung, RTSP, go2rtc, Video",
       "stonks": "Aktien, Watchlist, Anlagen, Börse, ETF, Depot",
       "games": "Spiele, spielen, Portal, Spieleportal",
+      "videos": "Videos, Streaming, schauen, TV, Netflix, YouTube, Hulu, Disney",
       "pocket-money": "Taschengeld, Kinder, Sparen, Zinsen, Geld, Konto, Punkte, Belohnungen, Aufgabenpunkte",
       "media-players": "Medien, Musik, Lautsprecher, Sonos, Fernseher, TV, Player",
       "google": "Google, Google Kalender, Konto, synchronisieren",
@@ -3596,6 +3619,8 @@
       "stonks_add-symbol": "Symbol hinzufügen, Ticker, Aktie, ETF, suchen",
       "stonks_watchlist": "Watchlist, Beobachtungsliste, Aktien, entfernen, Spitzname",
       "games_portal": "Portal, Adresse, URL, Link, Spieleseite",
+      "videos_services": "Dienste, YouTube, Netflix, Prime Video, Hulu, Disney+, Streaming",
+      "videos_custom": "eigene Dienste, Dienst hinzufügen, benutzerdefiniert, Link, Adresse",
       "pocket-money_currency": "Währung, Euro, Dollar, Pfund, Geld",
       "google_auto-sync": "automatische Synchronisierung, Intervall, Google synchronisieren, wie oft",
       "google_calendars": "Kalender, Google-Kalender, welche Kalender, aktivieren, Farben",
@@ -5602,6 +5627,12 @@
     "openExternal": "In neuem Tab öffnen",
     "mixedContent": "Dieses Portal kann hier nicht angezeigt werden: Kinboard läuft über HTTPS, die Portaladresse aber über HTTP — Browser verweigern diese Mischung. Gib dem Portal stattdessen eine HTTPS-Adresse.",
     "settingsLink": "Spiele-Einstellungen"
+  },
+  "videos": {
+    "title": "Videos",
+    "intro": "Tippe auf einen Dienst, um ihn im Vollbild zu öffnen. Die Zurück-Schaltfläche deines Browsers bringt dich zu Kinboard zurück.",
+    "empty": "Für diese Familie sind noch keine Videodienste eingeschaltet.",
+    "settingsLink": "Videos-Einstellungen"
   },
   "media": {
     "title": "Medien",

@@ -21,6 +21,7 @@ import {
   Music,
   Gift,
   Gamepad2,
+  Clapperboard,
 } from "lucide-react";
 
 /**
@@ -100,6 +101,7 @@ export const NAV_ITEMS = [
   { href: "/photos", icon: Images, labelKey: "photos" },
   { href: "/media", icon: Music, labelKey: "media" },
   { href: "/games", icon: Gamepad2, labelKey: "games" },
+  { href: "/videos", icon: Clapperboard, labelKey: "videos" },
   { href: "/news", icon: Newspaper, labelKey: "news" },
   { href: "/settings", icon: Settings, labelKey: "settings" },
 ] as const;

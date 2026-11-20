@@ -7,6 +7,7 @@ import { pocketMoneyPlugin } from "./pocket-money";
 import { photosPlugin } from "./photos";
 import { mediaPlugin } from "./media";
 import { gamesPlugin } from "./games";
+import { videosPlugin } from "./videos";
 
 /**
  * The single registration point for surface plugins. Order here is the
@@ -24,6 +25,7 @@ export const PLUGINS: readonly SurfacePlugin[] = [
   photosPlugin,
   mediaPlugin,
   gamesPlugin,
+  videosPlugin,
 ];
 
 /** Look up by id; returns undefined if not registered. */
