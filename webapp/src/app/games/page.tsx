@@ -57,6 +57,7 @@ const GAME_ART_BG: Record<GameId, string> = {
   sudoku: "#fdf3e3",
   wordle: "#e9e4d8",
   trivia: "#fdf3e3",
+  solitaire: "#e9e4d8",
 };
 
 /** The card art, carried over from the old standalone games hub. */
@@ -131,6 +132,21 @@ function GameArt({ id }: { id: GameId }) {
             <rect x="65" y="87" width="24" height="24" rx="4" fill="#fff" stroke="#d8cbb4" strokeWidth="2" />
             <rect x="93" y="87" width="24" height="24" rx="4" fill="#fff" stroke="#d8cbb4" strokeWidth="2" />
             <rect x="121" y="87" width="24" height="24" rx="4" fill="#fff" stroke="#d8cbb4" strokeWidth="2" />
+          </g>
+        </svg>
+      );
+    case "solitaire":
+      return (
+        <svg width="168" height="150" viewBox="0 0 120 108" aria-hidden="true">
+          <g transform="rotate(-14 38 58)">
+            <rect x="16" y="24" width="44" height="62" rx="6" fill="#fff" stroke="#d8cbb4" strokeWidth="2.5" />
+            <text x="26" y="45" fontSize="17" fontWeight="bold" fill="#26324B">A</text>
+            <text x="38" y="72" fontSize="25" textAnchor="middle" fill="#26324B">♠</text>
+          </g>
+          <g transform="rotate(10 82 58)">
+            <rect x="60" y="24" width="44" height="62" rx="6" fill="#fff" stroke="#d8cbb4" strokeWidth="2.5" />
+            <text x="70" y="45" fontSize="17" fontWeight="bold" fill="#E01E37">K</text>
+            <text x="82" y="72" fontSize="25" textAnchor="middle" fill="#E01E37">♥</text>
           </g>
         </svg>
       );

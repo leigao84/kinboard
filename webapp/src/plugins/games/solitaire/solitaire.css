@@ -1,0 +1,63 @@
+/* Solitaire's own stylesheet, written for the Games plugin and
+   scoped to its root so it can live inside Kinboard.
+   The font is Kinboard's — nothing here sets one. */
+.kb-game-solitaire, .kb-game-solitaire * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+.kb-game-solitaire { background: #f6f1e7; color: #4a3f35; border-radius: 18px;
+  display: flex; flex-direction: column; align-items: center; padding: 16px 12px 40px;
+  -webkit-touch-callout: none; }
+.kb-game-solitaire .bar { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; align-items: center; margin-bottom: 12px; }
+.kb-game-solitaire button { font: inherit; font-size: 15px; border: none; border-radius: 999px; padding: 9px 16px;
+  background: #e07856; color: #fff; cursor: pointer; box-shadow: 0 2px 5px rgba(90,70,40,.2); }
+.kb-game-solitaire button.ghost { background: #fff; color: #4a3f35; border: 2px solid #e3d9c8; box-shadow: none; }
+.kb-game-solitaire button.ghost.on { background: #ffd166; border-color: #e0a92e; }
+.kb-game-solitaire button:active { transform: scale(.96); }
+.kb-game-solitaire button:disabled { opacity: .45; cursor: default; }
+.kb-game-solitaire button:disabled:active { transform: none; }
+.kb-game-solitaire .seg { display: inline-flex; gap: 6px; }
+.kb-game-solitaire .stats { display: flex; gap: 18px; font-size: 15px; color: #7a6a58; margin-bottom: 12px; }
+.kb-game-solitaire .stats b { color: #4a3f35; }
+
+/* The felt: a top row (stock, waste, foundations) over the seven
+   tableau columns. Cards are sized off --cw, set from the table's
+   real width by the component, so the whole layout scales. */
+.kb-game-solitaire #table { width: 100%; max-width: 1020px; touch-action: none; user-select: none; }
+.kb-game-solitaire .toprow { display: grid; grid-template-columns: repeat(7, 1fr);
+  gap: var(--gap, 10px); margin-bottom: calc(var(--gap, 10px) * 1.8); }
+.kb-game-solitaire .tabrow { display: grid; grid-template-columns: repeat(7, 1fr);
+  gap: var(--gap, 10px); align-items: start; }
+.kb-game-solitaire .slot { position: relative; height: var(--ch, 126px); }
+.kb-game-solitaire .wasteslot { overflow: visible; }
+.kb-game-solitaire .fslot, .kb-game-solitaire .stockslot, .kb-game-solitaire .col.emptyslot {
+  border: 2px dashed rgba(74,63,53,.28); border-radius: calc(var(--cw, 90px) * .09); }
+.kb-game-solitaire .col { position: relative; }
+.kb-game-solitaire .ghostsuit { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: calc(var(--cw, 90px) * .44); opacity: .3; }
+.kb-game-solitaire .ghostsuit.red, .kb-game-solitaire .card.red { color: #E01E37; }
+.kb-game-solitaire .ghostsuit.black, .kb-game-solitaire .card.black { color: #26324B; }
+.kb-game-solitaire .recycle { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: calc(var(--cw, 90px) * .5); color: #7a6a58; cursor: pointer; }
+
+.kb-game-solitaire .card { position: absolute; left: 0; top: 0; width: var(--cw, 90px); height: var(--ch, 126px);
+  border-radius: calc(var(--cw, 90px) * .09); background: #fff; border: 1px solid #d8cbb4;
+  box-shadow: 0 1px 4px rgba(90,70,40,.28); cursor: pointer; touch-action: none; }
+.kb-game-solitaire .card.down { background-color: #4361EE; border: 2px solid #eef1fe;
+  background-image: repeating-linear-gradient(45deg, rgba(255,255,255,.16) 0 7px, transparent 7px 14px),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,.16) 0 7px, transparent 7px 14px);
+  box-shadow: inset 0 0 0 3px #4361EE, 0 1px 4px rgba(90,70,40,.28); cursor: default; }
+.kb-game-solitaire .card .corner { position: absolute; display: flex; flex-direction: column; align-items: center;
+  line-height: 1.02; font-weight: 700; font-size: calc(var(--cw, 90px) * .21); }
+.kb-game-solitaire .card .corner i { font-style: normal; font-size: calc(var(--cw, 90px) * .2); }
+.kb-game-solitaire .card .corner.tl { top: 4%; left: 7%; }
+.kb-game-solitaire .card .corner.br { bottom: 4%; right: 7%; transform: rotate(180deg); }
+.kb-game-solitaire .card .pip { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: calc(var(--cw, 90px) * .52); }
+.kb-game-solitaire .card.sel { box-shadow: 0 0 0 3px #ffd166, 0 8px 16px rgba(90,70,40,.35); transform: translateY(-4px); z-index: 40 !important; }
+.kb-game-solitaire .card.under { pointer-events: none; }
+.kb-game-solitaire .card.dragsrc { opacity: .3; }
+.kb-game-solitaire .draglayer { position: fixed; z-index: 80; pointer-events: none; }
+.kb-game-solitaire .draglayer .card { box-shadow: 0 12px 26px rgba(38,50,75,.4); }
+
+.kb-game-solitaire #win { display: none; margin-top: 16px; background: #fff; border: 2px solid #ffd166; border-radius: 16px;
+  padding: 16px 22px; text-align: center; box-shadow: 0 4px 18px rgba(90,70,40,.18); }
+.kb-game-solitaire #win .big { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+.kb-game-solitaire .how { max-width: 560px; color: #9a8a76; font-size: 13.5px; text-align: center; margin-top: 16px; line-height: 1.55; }

@@ -3,7 +3,7 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { ArrowLeft, Bomb, Brain, Hash, Puzzle, Type } from "lucide-react";
+import { ArrowLeft, Bomb, Brain, Hash, Puzzle, Spade, Type } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { GameId } from "./catalog";
@@ -14,6 +14,7 @@ const GAME_ICONS: Record<GameId, LucideIcon> = {
   sudoku: Hash,
   wordle: Type,
   trivia: Brain,
+  solitaire: Spade,
 };
 
 /**

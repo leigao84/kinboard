@@ -6,7 +6,7 @@ import type { SurfacePlugin } from "../types";
  *
  * The games are built into Kinboard itself: the nav button opens a
  * hub of games that ship with the app (jigsaw, minesweeper, sudoku,
- * wordle, trivia) and run on the device — nothing is framed and
+ * wordle, trivia, solitaire) and run on the device — nothing is framed and
  * nothing is fetched from outside, so nobody is stranded on an
  * external page with no way back. (Until this plugin grew up, the
  * button framed a separate games site the family hosted; the games

@@ -5652,6 +5652,19 @@
       "trivia": {
         "name": "Quiz",
         "tagline": "Zehn Fragen aus einer Bank mit Tausenden — Kategorie und Schwierigkeit wählen, eine Serie aufbauen, den Rekord jagen."
+      },
+      "solitaire": {
+        "name": "Solitär",
+        "tagline": "Klondike, die klassische Patience. Baue jede Farbe vom Ass bis zum König — ziehe eine Karte nach der anderen, oder gleich drei als Herausforderung.",
+        "newGame": "Neues Spiel",
+        "undo": "Rückgängig",
+        "draw1": "1 ziehen",
+        "draw3": "3 ziehen",
+        "time": "Zeit",
+        "moves": "Züge",
+        "best": "Rekord",
+        "won": "Gewonnen!",
+        "how": "So geht's: Tippe auf den Stapel, um Karten auf den Ablagestapel zu ziehen. Baue die Reihen abwechselnd nach Farben abwärts — Rot auf Schwarz, Schwarz auf Rot — und jede Grundreihe nach Farbe vom Ass zum König aufwärts. Tippe eine Karte an, um sie aufzunehmen, und tippe auf ihr Ziel, um sie abzulegen — oder ziehe sie einfach. Tippe eine Karte doppelt an, um sie nach Hause zu schicken, wenn sie passt. Nur ein König kann einen leeren Platz füllen."
       }
     },
   "videos": {

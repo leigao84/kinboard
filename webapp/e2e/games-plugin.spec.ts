@@ -19,7 +19,7 @@ const SRC = join(WEBAPP, "src");
 const MESSAGES = join(WEBAPP, "messages");
 const LOCALES = ["en", "de", "fr", "zh"] as const;
 
-const EXPECTED_GAMES = ["jigsaw", "minesweeper", "sudoku", "wordle", "trivia"] as const;
+const EXPECTED_GAMES = ["jigsaw", "minesweeper", "sudoku", "wordle", "trivia", "solitaire"] as const;
 
 function read(path: string): string {
   return readFileSync(path, "utf8");
@@ -33,7 +33,7 @@ function lookup(bundle: unknown, path: string): unknown {
 }
 
 test.describe("games plugin", () => {
-  test("the catalog lists exactly the five games, in hub order", () => {
+  test("the catalog lists exactly the six games, in hub order", () => {
     const catalog = read(join(SRC, "plugins", "games", "catalog.ts"));
     const ids = [...catalog.matchAll(/\{\s*id:\s*"(\w+)",\s*href:\s*"\/games\/(\w+)"\s*\}/g)].map(
       (m) => ({ id: m[1], slug: m[2] }),
@@ -152,6 +152,36 @@ test.describe("games plugin", () => {
       for (const path of ["games.jigsaw.yourPhotos", "games.jigsaw.samplePhotos", "games.jigsaw.newPhotos"]) {
         const value = lookup(bundle, path);
         expect(typeof value, `${locale}: ${path}`).toBe("string");
+        expect((value as string).trim()).not.toBe("");
+      }
+    }
+  });
+
+  test("solitaire is a full shelf member: strings, a logic module, no outside calls", () => {
+    const dir = join(SRC, "plugins", "games", "solitaire");
+    const component = read(join(dir, "SolitaireGame.tsx"));
+    const logic = read(join(dir, "logic.ts"));
+    // The rules live in their own module, played directly by
+    // solitaire-logic.spec.ts; the component only draws them.
+    expect(component).toContain('from "./logic"');
+    expect(component).toContain("kb-game-solitaire");
+    expect(logic).toContain("export function newGame");
+    expect(logic).toContain("export function applyMove");
+    // Nothing in the game reaches outside the app.
+    for (const source of [component, logic, read(join(dir, "solitaire.css"))]) {
+      expect(source).not.toMatch(/https?:\/\//);
+      expect(source).not.toContain("<iframe");
+    }
+    // Every label the game shows exists in every language.
+    const fields = [
+      "name", "tagline", "newGame", "undo", "draw1", "draw3",
+      "time", "moves", "best", "won", "how",
+    ];
+    for (const locale of LOCALES) {
+      const bundle = JSON.parse(read(join(MESSAGES, `${locale}.json`)));
+      for (const field of fields) {
+        const value = lookup(bundle, `games.solitaire.${field}`);
+        expect(typeof value, `${locale}: games.solitaire.${field}`).toBe("string");
         expect((value as string).trim()).not.toBe("");
       }
     }

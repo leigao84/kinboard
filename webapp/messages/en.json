@@ -5652,6 +5652,19 @@
       "trivia": {
         "name": "Trivia",
         "tagline": "Ten questions from a bank of thousands — pick a category and difficulty, build a streak, chase the best score."
+      },
+      "solitaire": {
+        "name": "Solitaire",
+        "tagline": "Klondike, the classic patience. Build each suit from Ace to King — draw one card at a time, or three for a challenge.",
+        "newGame": "New game",
+        "undo": "Undo",
+        "draw1": "Draw 1",
+        "draw3": "Draw 3",
+        "time": "Time",
+        "moves": "Moves",
+        "best": "Best",
+        "won": "You win!",
+        "how": "How to play: tap the stock to turn cards onto the waste. Build the piles down in alternating colours — red on black, black on red — and each foundation up by suit from Ace to King. Tap a card to pick it up, tap where it goes to put it down, or just drag it. Double-tap a card to send it home when it fits. Only a King can fill an empty pile."
       }
     },
   "videos": {

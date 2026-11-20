@@ -5652,6 +5652,19 @@
       "trivia": {
         "name": "Quiz",
         "tagline": "Dix questions tirées d'une banque de milliers — choisissez une catégorie et une difficulté, enchaînez les bonnes réponses, visez le meilleur score."
+      },
+      "solitaire": {
+        "name": "Solitaire",
+        "tagline": "Le Klondike, la patience classique. Montez chaque couleur de l'As au Roi — tirez une carte à la fois, ou trois pour le défi.",
+        "newGame": "Nouvelle partie",
+        "undo": "Annuler",
+        "draw1": "Tirer 1",
+        "draw3": "Tirer 3",
+        "time": "Temps",
+        "moves": "Coups",
+        "best": "Record",
+        "won": "Gagné !",
+        "how": "Comment jouer : touchez la pioche pour retourner des cartes sur la défausse. Descendez les piles en alternant les couleurs — rouge sur noir, noir sur rouge — et montez chaque fondation par couleur, de l'As au Roi. Touchez une carte pour la prendre, touchez sa destination pour la poser, ou faites-la glisser. Touchez une carte deux fois pour l'envoyer dans sa fondation quand elle y va. Seul un Roi peut remplir un emplacement vide."
       }
     },
   "videos": {

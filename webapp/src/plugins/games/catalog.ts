@@ -12,6 +12,7 @@ export const GAMES = [
   { id: "sudoku", href: "/games/sudoku" },
   { id: "wordle", href: "/games/wordle" },
   { id: "trivia", href: "/games/trivia" },
+  { id: "solitaire", href: "/games/solitaire" },
 ] as const;
 
 export type GameId = (typeof GAMES)[number]["id"];
