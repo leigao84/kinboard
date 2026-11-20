@@ -2631,14 +2631,14 @@
       }
     },
     "itemLanguageLabel": "语言",
-    "itemLanguageDescription": "在英语和德语之间切换界面",
+    "itemLanguageDescription": "在英语、德语、法语和简体中文之间切换界面",
     "language": {
       "title": "语言",
       "subtitle": "选择界面语言",
       "current": "当前",
       "holidaysMoved": "公共假日和学校假期在 <link>设置 → 节假日</link> 中设置。",
       "weekStartLabel": "每周从哪天开始",
-      "weekStartDescription": "日历的周网格和月网格从哪一天开始。跟随语言表示英语为周日，德语和法语为周一。",
+      "weekStartDescription": "日历的周网格和月网格从哪一天开始。跟随语言表示英语为周日，德语、法语和中文为周一。",
       "weekStart_locale": "跟随语言",
       "weekStart_monday": "周一",
       "weekStart_sunday": "周日",
