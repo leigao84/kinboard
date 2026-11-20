@@ -587,18 +587,21 @@ function initSolitaire(root: HTMLElement) {
   function onPointerUp(e: PointerEvent) {
     if (!press || e.pointerId !== press.pointerId) return;
     const p = press;
-    press = null;
     if (dragging) {
+      // endDrag reads `press` to compute the drop — clear it only
+      // after the drop has been resolved.
       endDrag(true);
+      press = null;
       return;
     }
+    press = null;
     onTap(p);
   }
 
   function onPointerCancel(e: PointerEvent) {
     if (!press || e.pointerId !== press.pointerId) return;
-    press = null;
     if (dragging) endDrag(false);
+    press = null;
   }
 
   tableEl.addEventListener("pointerdown", onPointerDown);
