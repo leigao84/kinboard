@@ -192,7 +192,7 @@ export function Weather({ className = "" }: WeatherProps) {
               </Tooltip>
               <div>
                 <div className="flex items-baseline gap-2">
-                  <p className="font-display text-5xl font-light tracking-tight tabular-nums">
+                  <p className="font-sans text-5xl font-light tracking-tight tabular-nums">
                     {weatherData.temp}°
                   </p>
                   {/* Number check, not truthiness: 0° is falsy, so at
